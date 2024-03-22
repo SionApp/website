@@ -6,16 +6,15 @@ import type { ManifestOptions } from "vite-plugin-pwa"
  */
 export const seoConfig = {
 	baseURL: "https://lavelada.es/", // Production URL.
-	description:
-		"Web Oficial de La Velada del Año IV, evento de boxeo entre streamers y creadores de contenido, organizado por Ibai Llanos.",
+	description: "Web Oficial de la Iglesia Cristian Pentecostal Sion, Cambiando Vidas.",
 	type: "website",
 	image: {
-		url: "https://lavelada.es/img/og.jpg",
-		alt: "La Velada",
+		url: "http://localhost:4321",
+		alt: "Iglesia Cristian Pentecostal Sion, Cambiando Vidas.",
 		width: 705,
 		height: 606,
 	},
-	siteName: "La Velada",
+	siteName: "Iglesia Sion",
 	twitter: {
 		card: "summary_large_image",
 	},
@@ -25,10 +24,9 @@ export const seoConfig = {
  * Defines the configuration for PWA webmanifest.
  */
 export const manifest: Partial<ManifestOptions> = {
-	name: "La Velada",
-	short_name: "La Velada",
-	description:
-		"Web Oficial de La Velada del Año IV, evento de boxeo entre streamers y creadores de contenido, organizado por Ibai Llanos.",
+	name: "Iglesia Sion",
+	short_name: "Iglesia Sion",
+	description: "Web Oficial de la Iglesia Cristian Pentecostal Sion, Cambiando Vidas.",
 	theme_color: "#d5ff00",
 	background_color: "#d5ff00",
 	display: "fullscreen",
