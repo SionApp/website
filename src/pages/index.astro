@@ -1,0 +1,32 @@
+---
+import LayoutPentecostes from "@/layouts/Layout-Pentecostes.astro"
+import Countdown from "@/sections/Countdown.astro"
+
+import Hero from "@/sections/Hero.astro"
+import PresentationVideo from "@/sections/PresentationVideo.astro"
+import PrincipalDate from "@/sections/PrincipalDate.astro"
+import CarouselImages from "@/sections/CarouselImages.astro"
+
+//import SelectYourBoxer from "@/sections/SelectYourBoxer.astro"
+//import Sponsors from "@/sections/Sponsors.astro"
+//import Info from "@/sections/Info.astro"
+---
+
+<LayoutPentecostes
+		description="Web Oficial de La iglesia Sion de Coro."
+		title="Iglesia Sion, Cambiando Vidas."
+	canonical="#"
+>
+	<Hero />
+
+	<main>
+		<PrincipalDate />
+		<!-- <SelectYourBoxer /> -->
+		<CarouselImages />
+		<PresentationVideo />
+		<!-- <Info /> -->
+		<!-- <Boxing /> -->
+		<!-- <Sponsors /> -->
+		<Countdown />
+	</main>
+</LayoutPentecostes>

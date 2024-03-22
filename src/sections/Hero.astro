@@ -1,0 +1,69 @@
+---
+import AnimatedX from "@/components/AnimatedX.astro"
+import HeroLogo from "@/components/HeroLogo.astro"
+---
+
+<section class="flex flex-col place-items-center gap-4 lg:gap-9">
+	<h1 class="sr-only bg-black/30">Presentación del Pentecostes La Fiesta del espiritu</h1>
+	<a
+		class="relative  font-atomic text-2xl text-white underline-offset-8 transition duration-200 hover:scale-110 motion-reduce:duration-0 motion-reduce:hover:scale-100 md:text-4xl"
+		href="#"
+		target="_blank"
+		rel="noopener"
+		title="Enlace a la pagina web de la Iglesia Sion"
+		aria-label="Enlace a la pagina web de la Iglesia Sion"
+	>
+		<span class="relative">Iglesia Sion</span>
+	</a>
+	<div class="relative">
+		<!-- <AnimatedX /-->
+		<div
+			class="absolute inset-0 -z-10 m-auto w-full rounded-full bg-black opacity-70 blur-2xl md:size-[400px]"
+		>
+		</div>
+
+		<div class="h-auto w-[450px] overflow-visible md:w-[1500px] bg-transparent">
+			<video class=bg-primary" src="./src/assets/videos/animationPentecostes.mp4" autoplay muted loop>
+			</video>
+		</div>
+		<!--HeroLogo class="h-auto w-[250px] overflow-visible md:w-[500px]" /-->
+	</div>
+</section>
+<style>
+	a::before {
+		content: "";
+		position: absolute;
+		left: 0;
+		bottom: -2px;
+		width: 100%;
+		height: 3px;
+		background-color: white;
+		transform-origin: right;
+		transform: scaleX(0);
+		transition: transform 0.2s ease-in-out;
+	}
+
+	a:hover::before {
+		transform: scaleX(1);
+		transform-origin: left;
+	}
+	@media (prefers-reduced-motion) {
+		a::before {
+			content: "";
+			position: absolute;
+			left: 0;
+			bottom: -2px;
+			width: 100%;
+			height: 3px;
+			background-color: white;
+			transform-origin: right;
+			transform: scaleX(0);
+			transition: transform 0s;
+		}
+
+		a:hover::before {
+			transform: scaleX(1);
+			transform-origin: left;
+		}
+	}
+</style>

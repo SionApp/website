@@ -1,0 +1,23 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200">
+  <!-- Definición del texto "Pentecostes" -->
+  <text x="30%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="40" fill="white">Pentecostes</text>
+  
+  <!-- Definición del texto "La fiesta del Espíritu" -->
+  <text x="45%" y="60%" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="20" fill="white">La fiesta del Espíritu</text>
+  
+  <!-- Definición de los bordes animados -->
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:rgb(255,215,0);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
+    </linearGradient>
+    <animateTransform id="border-animation" attributeName="transform" attributeType="XML" type="rotate" from="0 200 100" to="360 200 100" dur="10s" repeatCount="indefinite" />
+  </defs>
+  
+  <!-- Borde animado -->
+  <rect x="10" y="10" width="380" height="180" fill="none" stroke="url(#grad)" stroke-width="2" transform="rotate(0 200 100)">
+    <animateTransform attributeName="transform" attributeType="XML" type="rotate" values="0 200 100; 90 200 100; 180 200 100; 270 200 100; 360 200 100" dur="10s" repeatCount="indefinite"/>
+  </rect>
+</svg>
+
