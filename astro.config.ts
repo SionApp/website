@@ -1,10 +1,8 @@
 import tailwind from "@astrojs/tailwind"
 import vercel from "@astrojs/vercel/serverless"
 import { defineConfig } from "astro/config"
-
 import sitemap from "@astrojs/sitemap"
 import { VitePWA } from "vite-plugin-pwa"
-
 import robotsTxt from "astro-robots-txt"
 
 // Helper imports
@@ -17,9 +15,7 @@ export default defineConfig({
 		enabled: false,
 	},
 	integrations: [tailwind(), sitemap(), robotsTxt()],
-	adapter: vercel({
-		webAnalytics: { enabled: true },
-	}),
+	adapter: vercel(),
 	build: {
 		inlineStylesheets: "always",
 	},
