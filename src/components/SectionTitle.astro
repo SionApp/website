@@ -1,26 +1,11 @@
 ---
-import Typography from "./Typography.astro"
-
 interface Props {
-	title: string
-	description: string
-	variant?: keyof typeof variantSizes
+	class?: string
 }
 
-const { title, description, variant = "standar" } = Astro.props
+const baseClass = "text-2xl text-center md:text-5xl font-semibold"
 
-const variantSizes = {
-	small: "mx-auto max-w-[250px] text-wrap",
-	standar: "",
-}
-
-const classSize = variantSizes[variant]
+const { class: className = baseClass } = Astro.props
 ---
 
-<Typography as="h3" variant="h3" color="white" class:list={"text-center"}>
-	{title}
-</Typography>
-
-<Typography as="p" variant="body" color="neutral" class:list={`mt-4 text-center ${classSize}`}>
-	{description}
-</Typography>
+<h2 class:list={className}><slot /></h2>

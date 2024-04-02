@@ -5,11 +5,7 @@ interface Props {
 	backgroundImage?: string
 }
 
-const {
-	videoId,
-	title = "Reproducir presentación de La Velada del Año",
-	backgroundImage,
-} = Astro.props
+const { videoId, title = "Reproducir presentacion del pentecostes.", backgroundImage } = Astro.props
 ---
 
 <lite-youtube
@@ -20,7 +16,7 @@ const {
 	role="button"
 >
 	<a
-		href={`https://youtube.com/watch?v=${videoId}`}
+		href="https://www.youtube.com/watch?v=wQkuhl8jODU&ab_channel=pruebavideografica"
 		class="lty-playbtn"
 		title={title}
 		role="button"
@@ -106,7 +102,7 @@ const {
 			// TODO: Try loading the the YT API in parallel with our iframe and then attaching/playing it. #82
 			this.needsYTApi =
 				this.hasAttribute("js-api") ||
-				navigator.vendor.includes("Apple") ||
+				// navigator.vendor.includes("Apple") ||
 				navigator.userAgent.includes("Mobi")
 		}
 

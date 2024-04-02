@@ -121,13 +121,7 @@
         "price": {
           "amount": "Free"
         },
-        "features": [
-          "feature 1",
-          "feature 2",
-          "feature 3",
-          "feature 4",
-          "feature 5"
-        ],
+        "features": ["feature 1", "feature 2", "feature 3", "feature 4", "feature 5"],
         "cta": "Get started"
       },
       {
@@ -137,13 +131,7 @@
           "amount": "$29",
           "period": "/month"
         },
-        "features": [
-          "feature 1",
-          "feature 2",
-          "feature 3",
-          "feature 4",
-          "feature 5"
-        ],
+        "features": ["feature 1", "feature 2", "feature 3", "feature 4", "feature 5"],
         "cta": "Get started"
       },
       {
@@ -153,13 +141,7 @@
           "amount": "$59",
           "period": "/month"
         },
-        "features": [
-          "feature 1",
-          "feature 2",
-          "feature 3",
-          "feature 4",
-          "feature 5"
-        ],
+        "features": ["feature 1", "feature 2", "feature 3", "feature 4", "feature 5"],
         "cta": "Get started"
       }
     ]

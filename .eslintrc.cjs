@@ -69,6 +69,7 @@ module.exports = {
 				"astro/semi": ["warn", "never"],
 				"astro/jsx-a11y/anchor-is-valid": "warn",
 				"@stylistic/ts/indent": "off",
+				"astro/jsx-a11y/label-has-associated-control": "off",
 			},
 		},
 		{

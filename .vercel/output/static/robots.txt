@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lavelada.es/sitemap-index.xml

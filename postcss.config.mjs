@@ -4,5 +4,6 @@ export default {
 		"tailwindcss/nesting": "postcss-nesting",
 		"tailwindcss": {},
 		"autoprefixer": {},
+		"postcss-safe-parser": {},
 	},
 }

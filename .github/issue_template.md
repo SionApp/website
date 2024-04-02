@@ -17,22 +17,4 @@
 
 <!-- Ayude a proporcionar información sobre la falla si se trata de un error. Si no es un error, elimine el resto de esta plantilla. -->
 
-## Pasos para reproducirlo
-
-<!-- Proporcione los pasos detallados para reproducir el problema. -->
-
-1. Paso 1
-2. Paso 2
-
 ## Contexto
-
-<!-- Proporcione cualquier información relevante sobre su configuración. Esto es importante en caso de que el problema no sea reproducible excepto bajo ciertas condiciones. -->
-
-- Navegador: Firefox, Chrome, Safari, Microsoft Edge, Opera, etc.
-- Versión del navegador: ---
-- Sistema operativo: Windows, MacOS, Linux
-
-
-## Logs de error (si corresponde)
-
-<!-- Incluya aquí cualquier fragmento de registro o archivo relevante. -->

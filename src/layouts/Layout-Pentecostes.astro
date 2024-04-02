@@ -23,19 +23,13 @@ interface Props {
 	image?: string
 }
 
-const { title, description, preloadImgLCP, canonical, image } = Astro.props
+const { title, description, canonical, image } = Astro.props
 ---
 
 <!doctype html>
 <html lang="es">
 	<head>
-		<SEO
-			canonical={canonical}
-			description={description}
-			image={image}
-			preloadImgLCP={preloadImgLCP!}
-			title={title}
-		/>
+		<SEO canonical={canonical} description={description} image={image} title={title} />
 		<ViewTransitions />
 	</head>
 
@@ -64,7 +58,7 @@ const { title, description, preloadImgLCP, canonical, image } = Astro.props
 			:root {
 				--color-primary: #ddd;
 				--color-secondary: #333;
-				--color-accent: #DFB93F;
+				--color-accent: #dfb93f;
 				--color-accent-rgb: 213, 255, 0;
 
 				--background-color: #141800;
@@ -82,7 +76,8 @@ const { title, description, preloadImgLCP, canonical, image } = Astro.props
 
 			html {
 				font-family: "Jost Variable", system-ui, sans-serif;
-				background: var(--background-color);
+				/*background: var(--background-color);*/
+				background: black;
 				scrollbar-gutter: stable;
 			}
 

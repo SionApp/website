@@ -1,19 +1,19 @@
 ---
-import AnimatedX from "@/components/AnimatedX.astro"
-import HeroLogo from "@/components/HeroLogo.astro"
+// import AnimatedX from "@/components/AnimatedX.astro"
+// import HeroLogo from "@/components/HeroLogo.astro"
 ---
 
 <section class="flex flex-col place-items-center gap-4 lg:gap-9">
 	<h1 class="sr-only bg-black/30">Presentación del Pentecostes La Fiesta del espiritu</h1>
 	<a
-		class="relative  font-atomic text-2xl text-white underline-offset-8 transition duration-200 hover:scale-110 motion-reduce:duration-0 motion-reduce:hover:scale-100 md:text-4xl"
-		href="#"
+		class="relative font-sans text-4xl text-white underline-offset-8 transition duration-200 hover:scale-110 motion-reduce:duration-0 motion-reduce:hover:scale-100 md:text-4xl"
+		href="/#"
 		target="_blank"
 		rel="noopener"
 		title="Enlace a la pagina web de la Iglesia Sion"
 		aria-label="Enlace a la pagina web de la Iglesia Sion"
 	>
-		<span class="relative">Iglesia Sion</span>
+		<span class="relative">Pentecostes 2024</span>
 	</a>
 	<div class="relative">
 		<!-- <AnimatedX /-->
@@ -22,8 +22,17 @@ import HeroLogo from "@/components/HeroLogo.astro"
 		>
 		</div>
 
-		<div class="h-auto w-[450px] overflow-visible md:w-[1500px] bg-transparent">
-			<video class=bg-primary" src="./src/assets/videos/animationPentecostes.mp4" autoplay muted loop>
+		<div
+			class="h-auto w-[450px] overflow-visible bg-transparent md:w-[1200px]"
+			style="background: linear-gradient(180deg, transparent 0%, transparent 21%, #222222 20%, rgba(17, 17, 17, 0) 90%);"
+		>
+			<video
+				class="bg-primary"
+				src="./src/assets/videos/animationPentecostes.mp4"
+				autoplay
+				muted
+				loop
+			>
 			</video>
 		</div>
 		<!--HeroLogo class="h-auto w-[250px] overflow-visible md:w-[500px]" /-->
