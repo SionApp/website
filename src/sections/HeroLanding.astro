@@ -14,35 +14,18 @@ interface Props {
 const { data } = Astro.props
 ---
 
-<section id="hero-section" class="mt-48 flex h-screen justify-center">
+<section
+	id="hero-section"
+	class="my-28 flex h-screen justify-center bg-cover"
+	style={"background-image: url('./src/assets/carousel/image-02.jpg')"}
+>
 	<div class="md:w-1/2">
-		<h1 class="text-center text-4xl font-semibold md:text-6xl">
+		<h1 class="mt-10 text-center text-4xl font-semibold md:text-6xl">
 			{data.title}
-			<span class="text-primary"> {data.highlightedTitle} </span>
 		</h1>
 		<h2 class="mt-10 text-center text-lg opacity-80 md:text-2xl">
-			{data.subTitle}
+			{data.highlightedTitle}
 		</h2>
-		<div class="mt-10 flex justify-evenly">
-			<Action
-				as="a"
-				type="button"
-				class="bg-black text-white"
-				href="https://github.com/JimmyCamus/luna-landing"
-				target="_blank"
-			>
-				{data.primaryCta}
-			</Action>
-			<Action
-				as="a"
-				class="border border-black bg-transparent text-black"
-				type="button"
-				href="https://github.com/JimmyCamus/luna-landing"
-				target="_blank"
-			>
-				{data.secondaryCta}
-			</Action>
-		</div>
 		<div class="flex justify-center">
 			<Action
 				as="a"
@@ -81,5 +64,7 @@ const { data } = Astro.props
 	#hero-section {
 		opacity: 0;
 		animation: fadeIn 0.8s ease-in-out forwards;
+		background-size: cover;
+		background-position: center;
 	}
 </style>

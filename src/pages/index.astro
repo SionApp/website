@@ -1,24 +1,29 @@
 ---
-import LayoutPentecostes from "@/layouts/Layout-Pentecostes.astro"
+import Layout from "@/layouts/Layout.astro"
+import Adventajes from "@/sections/Adventajes.astro"
+import Brands from "@/sections/Brands.astro"
+import Footer from "@/sections/FooterLanding.astro"
+import Header from "@/sections/Header.astro"
+import Hero from "@/sections/HeroLanding.astro"
+import Pricing from "@/sections/Pricing.astro"
+import Services from "@/sections/Services.astro"
+import { getLandingData } from "@/services/data.service"
 
-import CarouselImages from "@/sections/CarouselImages.astro"
-import Countdown from "@/sections/Countdown.astro"
-import Hero from "@/sections/Hero.astro"
-import PresentationVideo from "@/sections/PresentationVideo.astro"
-import PrincipalDate from "@/sections/PrincipalDate.astro"
+const data = await getLandingData()
 ---
 
-<LayoutPentecostes
-	description="Web Oficial de La iglesia Sion de Coro."
-	title="Iglesia Sion, Cambiando Vidas."
-	canonical="#"
->
-	<Hero />
-
-	<main>
-		<PrincipalDate />
-		<CarouselImages />
-		<PresentationVideo />
-		<Countdown />
+<Layout meta={data.meta}>
+	<Header data={data.headerData} />
+	<main class="flex flex-col items-center justify-center">
+		<div class="w-full">
+			<Hero data={data.heroData} />
+		</div>
+		<div class="w-3/4">
+			<Services data={data.servicesData} />
+			<Adventajes data={data.adventajesData} />
+			<Brands data={data.brandsData} />
+			<Pricing data={data.pricingData} />
+		</div>
+		<Footer data={data.footerData} />
 	</main>
-</LayoutPentecostes>
+</Layout>

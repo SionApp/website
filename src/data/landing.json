@@ -1,52 +1,50 @@
 {
   "meta": {
-    "title": "Luna Landing your perfect landing page",
-    "description": "Landing page template",
-    "lang": "en",
+    "title": "Iglesia Sion",
+    "description": "Website for Iglesia Sion, a Christian church in Coro, Venezuela.",
+    "lang": "es",
     "charset": "UTF-8",
     "ldJson": {
       "@context": "http://schema.org",
       "@type": "Organization",
-      "name": "Luna Landing",
-      "description": "Fictitious company that seeks to elevate and simplify the lives of web developers.",
-      "url": "https://luna-landing-rust.vercel.app/",
-      "logo": "./public/favicon.svg",
+      "name": "Iglesia Sion",
+      "description": "Iglesia Cristiana Evangélica Pentecostal",
+      "url": "#",
+      "logo": "./public/img/icons/favicon-32x32.png",
       "contactPoint": {
         "@type": "ContactPoint",
-        "email": "luna-landing@luna.com",
-        "contactType": "Client Service"
+        "email": "iglesiaevangelicapsion@gmail.com\n",
+        "contactType": "Solicitud de información"
       },
       "sameAs": [
-        "https://www.twitter.com/yourpage",
-        "https://www.instagram.com/yourpage",
-        "https://www.linkedin.com/company/yourpage"
+        "https://www.twitter.com/IglesiaSionCoro",
+        "https://www.instagram.com/iglesiasioncoro"
       ]
     }
   },
   "headerData": {
-    "logo": "Luna Landing",
+    "logo": "Iglesia Sion",
     "links": [
-      { "label": "About", "href": "#" },
-      { "label": "Services", "href": "#" },
-      { "label": "Prices", "href": "#" },
-      { "label": "FAQs", "href": "#" },
-      { "label": "Blog", "href": "#" }
+      { "label": "Sobre nosotros", "href": "/about-us" },
+      { "label": "Discipulado", "href": "/discipleship" },
+      { "label": "Servicios", "href": "/worship-services" },
+      { "label": "Carteras", "href": "/departments" },
+      { "label": "Contactanos", "href": "/contact-us" }
     ]
   },
   "heroData": {
-    "title": "Open Your Mind to the Universe: Welcome to",
-    "subTitle": "Discover the Beauty of the Cosmos: Explore the Infinite Wonders of Space with Us",
-    "primaryCta": "Github Repo",
-    "secondaryCta": "See our pricing",
-    "highlightedTitle": "Luna Landing"
+    "title": "Iglesia Sion",
+    "primaryCta": "Discipulado",
+    "secondaryCta": "Pentecostes",
+    "highlightedTitle": "Cambiando Vidas"
   },
   "servicesData": {
     "title": "Everything you need to build a website",
     "services": [
       {
-        "title": "Professional Templates",
+        "title": "El Discipulado",
         "icon": "DevIcon",
-        "description": "Our templates are crafted by experienced web designers, ensuring a modern and polished look for your site. From typography to element design, every detail is carefully considered to convey a professional image."
+        "description": "El discipulado es un viaje de transformación y crecimiento en la fe cristiana. Es un proceso en el que un creyente maduro guía y acompaña a otro en su camino de fe, ayudándole a conocer más profundamente a Jesús y a vivir según sus enseñanzas.  En la Iglesia Cristiana Evangélica Pentecostal Sion, entendemos el discipulado como una relación de acompañamiento y mentoría. Es un compromiso de amor y servicio, donde un discípulo de Jesús se dedica a hablarle a otra persona sobre Él, a compartir el Evangelio y a ayudar a esa persona a crecer en su relación con Dios.  El discipulado no es solo enseñar sobre la Biblia y la fe, sino también estar presente en los momentos de dificultad, ofrecer apoyo y orientación, y caminar juntos en el viaje de la vida cristiana. Es un proceso de aprendizaje mutuo, donde tanto el discipulador como el discípulo crecen y se fortalecen en su fe.  En nuestra iglesia, creemos que todos los creyentes están llamados a ser discipuladores, a seguir el ejemplo de Jesús y a hacer discípulos en todas las naciones. Este es el corazón de nuestra misión y nuestro compromiso como seguidores de Cristo."
       },
       {
         "title": "Integrated Accessibility",
