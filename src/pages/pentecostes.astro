@@ -1,0 +1,24 @@
+---
+import LayoutPentecostes from "@/layouts/Layout-Pentecostes.astro"
+
+import CarouselImages from "@/sections/CarouselImages.astro"
+import Countdown from "@/sections/Countdown.astro"
+import Hero from "@/sections/Hero.astro"
+import PresentationVideo from "@/sections/PresentationVideo.astro"
+import PrincipalDate from "@/sections/PrincipalDate.astro"
+---
+
+<LayoutPentecostes
+	description="Web Oficial de La iglesia Sion de Coro."
+	title="Iglesia Sion, Cambiando Vidas."
+	canonical="#"
+>
+	<Hero />
+
+	<main>
+		<PrincipalDate />
+		<CarouselImages />
+		<PresentationVideo />
+		<Countdown />
+	</main>
+</LayoutPentecostes>
