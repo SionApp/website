@@ -1,3 +1,7 @@
+---
+const { data } = Astro.props
+---
+
 <section class="mt-10 overflow-hidden px-2 pb-48 pt-16 sm:pb-56 sm:pt-20 md:pb-28 md:pt-48">
 	<div class="container">
 		<div class="carousel">
@@ -10,108 +14,47 @@
 			<input type="radio" name="slides" id="slide-7" />
 			<input type="radio" name="slides" id="slide-8" />
 			<ul class="carousel__slides">
-				<li class="carousel__slide">
-					<figure>
-						<div>
-							<img width="auto" height="450" src="assets/carousel/image-01.jpg" alt="" />
-						</div>
-					</figure>
-				</li>
-				<li class="carousel__slide">
-					<figure>
-						<div>
-							<img width="auto" height="450" src="assets/carousel/image-02.jpg" alt="" />
-						</div>
-					</figure>
-				</li>
-				<li class="carousel__slide">
-					<figure>
-						<div>
-							<img width="auto" height="450" src="assets/carousel/image-03.jpg" alt="" />
-						</div>
-					</figure>
-				</li>
-				<li class="carousel__slide">
-					<figure>
-						<div>
-							<img width="auto" height="450" src="assets/carousel/image-04.jpg" alt="" />
-						</div>
-					</figure>
-				</li>
-				<li class="carousel__slide">
-					<figure>
-						<div>
-							<img width="auto" height="450" src="assets/carousel/image-05.jpg" alt="" />
-						</div>
-					</figure>
-				</li>
-				<li class="carousel__slide">
-					<figure>
-						<div>
-							<img width="auto" height="450" src="assets/carousel/image-06.jpg" alt="" />
-						</div>
-					</figure>
-				</li>
-				<li class="carousel__slide">
-					<figure>
-						<div>
-							<img width="auto" height="450" src="assets/carousel/image-07.jpg" alt="" />
-						</div>
-					</figure>
-				</li>
-				<li class="carousel__slide">
-					<figure>
-						<div>
-							<img width="auto" height="450" src="assets/carousel/image-08.jpg" alt="" />
-						</div>
-					</figure>
-				</li>
+				{
+					data.slides.map((item, index) => (
+						<li class="carousel__slide">
+							<figure>
+								<div>
+									<img width="auto" height="450" src={item.image} alt={item.description} />
+								</div>
+							</figure>
+						</li>
+					))
+				}
 			</ul>
 			<ul class="carousel__thumbnails">
-				<li>
-					<label for="slide-1">
-						<img width="800" height="450" src="assets/carousel/image-01.jpg" alt="" />
-					</label>
-				</li>
-				<li>
-					<label for="slide-2">
-						<img width="800" height="450" src="assets/carousel/image-02.jpg" alt="" />
-					</label>
-				</li>
-				<li>
-					<label for="slide-3">
-						<img width="800" height="450" src="assets/carousel/image-03.jpg" alt="" />
-					</label>
-				</li>
-				<li>
-					<label for="slide-4">
-						<img width="800" height="450" src="assets/carousel/image-04.jpg" alt="" />
-					</label>
-				</li>
-				<li>
-					<label for="slide-5">
-						<img width="800" height="450" src="assets/carousel/image-05.jpg" alt="" />
-					</label>
-				</li>
-				<li>
-					<label for="slide-6">
-						<img width="800" height="450" src="assets/carousel/image-06.jpg" alt="" />
-					</label>
-				</li>
-				<li>
-					<label for="slide-7">
-						<img width="800" height="450" src="assets/carousel/image-07.jpg" alt="" />
-					</label>
-				</li>
-				<li>
-					<label for="slide-8">
-						<img width="800" height="450" src="assets/carousel/image-08.jpg" alt="" />
-					</label>
-				</li>
+				{
+					data.slides.map((item, index) => (
+						<li>
+							<label for={item.title}>
+								<img width="800" height="450" src={item.image} alt={item.description} />
+							</label>
+						</li>
+					))
+				}
 			</ul>
 		</div>
 	</div>
 </section>
+
+<script is:inline>
+	// We prevent the page from moving when clicking on the thumbnails.
+	document.addEventListener("DOMContentLoaded", (event) => {
+		const labels = document.querySelectorAll(".carousel__thumbnails label")
+		const inputs = document.querySelectorAll('.carousel input[type="radio"]')
+
+		labels.forEach((label, index) => {
+			label.addEventListener("click", (event) => {
+				event.preventDefault()
+				inputs[index].checked = true
+			})
+		})
+	})
+</script>
 
 <style>
 	@mixin aspect-ratio($width, $height) {

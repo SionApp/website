@@ -6,6 +6,9 @@ import Countdown from "@/sections/Countdown.astro"
 import Hero from "@/sections/Hero.astro"
 import PresentationVideo from "@/sections/PresentationVideo.astro"
 import PrincipalDate from "@/sections/PrincipalDate.astro"
+import { getEventsData } from "@/services/data.service"
+
+const data = await getEventsData()
 ---
 
 <LayoutPentecostes
@@ -17,7 +20,7 @@ import PrincipalDate from "@/sections/PrincipalDate.astro"
 
 	<main>
 		<PrincipalDate />
-		<CarouselImages />
+		<CarouselImages data={data.carousel} />
 		<PresentationVideo />
 		<Countdown />
 	</main>

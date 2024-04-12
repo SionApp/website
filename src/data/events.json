@@ -1,0 +1,46 @@
+{
+  "carousel": {
+    "slides": [
+      {
+        "image": "assets/carousel/image-01.jpg",
+        "title": "slide-1",
+        "description": "This is the first slide"
+      },
+      {
+        "image": "assets/carousel/image-02.jpg",
+        "title": "slide-2",
+        "description": "This is the second slide"
+      },
+      {
+        "image": "assets/carousel/image-03.jpg",
+        "title": "slide-3",
+        "description": "This is the third slide"
+      },
+      {
+        "image": "assets/carousel/image-04.jpg",
+        "title": "slide-4",
+        "description": "This is the fourth slide"
+      },
+      {
+        "image": "assets/carousel/image-05.jpg",
+        "title": "slide-5",
+        "description": "This is the fifth slide"
+      },
+      {
+        "image": "assets/carousel/image-06.jpg",
+        "title": "slide-6",
+        "description": "This is the sixth slide"
+      },
+      {
+        "image": "assets/carousel/image-07.jpg",
+        "title": "slide-7",
+        "description": "This is the seventh slide"
+      },
+      {
+        "image": "assets/carousel/image-08.jpg",
+        "title": "slide-8",
+        "description": "This is the eighth slide"
+      }
+    ]
+  }
+}
