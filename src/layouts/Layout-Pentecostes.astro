@@ -11,18 +11,6 @@ import TwitchLiveBox from "@/components/TwitchLiveBox.astro"
 import Footer from "@/sections/Footer.astro"
 import "@fontsource-variable/jost"
 
-interface Props {
-	title: string
-	description: string
-	preload?: Array<{
-		as: string
-		href: string
-		type: string
-	}>
-	canonical?: string
-	image?: string
-}
-
 const { title, description, canonical, image } = Astro.props
 ---
 

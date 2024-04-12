@@ -1,4 +1,6 @@
 ---
+import type { CarouselData } from "@/config/landing.interface"
+
 const { data } = Astro.props
 ---
 
@@ -15,7 +17,7 @@ const { data } = Astro.props
 			<input type="radio" name="slides" id="slide-8" />
 			<ul class="carousel__slides">
 				{
-					data.slides.map((item, index) => (
+					data.slides.map((item: CarouselData) => (
 						<li class="carousel__slide">
 							<figure>
 								<div>
@@ -28,7 +30,7 @@ const { data } = Astro.props
 			</ul>
 			<ul class="carousel__thumbnails">
 				{
-					data.slides.map((item, index) => (
+					data.slides.map((item: CarouselData) => (
 						<li>
 							<label for={item.title}>
 								<img width="800" height="450" src={item.image} alt={item.description} />
@@ -43,7 +45,7 @@ const { data } = Astro.props
 
 <script is:inline>
 	// We prevent the page from moving when clicking on the thumbnails.
-	document.addEventListener("DOMContentLoaded", (event) => {
+	document.addEventListener("DOMContentLoaded", () => {
 		const labels = document.querySelectorAll(".carousel__thumbnails label")
 		const inputs = document.querySelectorAll('.carousel input[type="radio"]')
 

@@ -132,3 +132,9 @@ export type Icon =
 	| "VueIcon"
 	| "VercelIcon"
 	| "NetlifyIcon"
+
+export interface CarouselData {
+	image: string
+	title: string
+	description: string
+}
