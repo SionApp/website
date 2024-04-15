@@ -1,8 +1,8 @@
 # CONTRIBUTING.md
 
-## Bienvenido a 'La velada del año 4' 🌌
+## Bienvenido a 'Iglesia Sion' 🌌
 
-¡Estamos encantados de que estés interesado en contribuir a nuestro proyecto! Este documento te guiará a través de los pasos necesarios para aportar tu valioso trabajo a 'La velada del año 4', un proyecto desarrollado con Astro. Queremos hacer de este proceso algo sencillo y transparente, así que aquí tienes una guía paso a paso.
+¡Estamos encantados de que estés interesado en contribuir a nuestro proyecto! Este documento te guiará a través de los pasos necesarios para aportar tu valioso trabajo a 'Iglesia Sion', un proyecto desarrollado con Astro. Queremos hacer de este proceso algo sencillo y transparente, así que aquí tienes una guía paso a paso.
 
 ### Primeros pasos 🚀
 
@@ -26,7 +26,7 @@
 
 #### 2. Trabaja en tus cambios
 
-- **Sincroniza el fork**: Puedes hacerlo desde `github.com/tu-usuario/tu-repositorio-de-la-velada` y haciendo click en `Sync fork`. También puedes hacerlo desde la terminal `gh repo sync -b main` o `git switch main && git fetch upstream && git merge upstream/main`. Más información en la [documentación oficial de Github](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)
+- **Sincroniza el fork**: Puedes hacerlo desde `github.com/tu-usuario/tu-repositorio-de-la-iglesia-sion` y haciendo click en `Sync fork`. También puedes hacerlo desde la terminal `gh repo sync -b main` o `git switch main && git fetch upstream && git merge upstream/main`. Más información en la [documentación oficial de Github](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)
 - **Crea una nueva rama**: Antes de empezar a trabajar en tus cambios, crea una nueva rama utilizando `git switch -c nombre-de-tu-rama`.
 - **Desarrolla tus cambios**: Implementa tus cambios o mejoras en tu rama local. Asegúrate de seguir las prácticas y estándares de código del proyecto.
 - **Prueba tus cambios**: Ejecuta `pnpm run dev` para iniciar el servidor de desarrollo de Astro y revisa tus cambios en el navegador.
@@ -35,7 +35,7 @@
 
 - **Commit de tus cambios**: Una vez estés satisfecho con tus cambios, haz commit de ellos con un mensaje claro y descriptivo.
 - **Push a tu fork**: Haz push de tu rama con los cambios a tu fork en GitHub utilizando `git push origin nombre-de-tu-rama`.
-- **Crea un Pull Request (PR)**: En GitHub, ve a tu fork de 'La velada del año 4' y haz clic en "Pull request" para iniciar uno. Asegúrate de describir claramente qué cambios has realizado y por qué son necesarios o útiles para el proyecto.
+- **Crea un Pull Request (PR)**: En GitHub, ve a tu fork de 'Iglesia Sion' y haz clic en "Pull request" para iniciar uno. Asegúrate de describir claramente qué cambios has realizado y por qué son necesarios o útiles para el proyecto.
 
 ### Buenas prácticas 🌟
 
@@ -51,4 +51,4 @@
 
 Si tienes alguna pregunta o necesitas ayuda, no dudes en abrir un "issue" en el repositorio. Nuestro equipo y la comunidad estarán encantados de ayudarte.
 
-¡Gracias por contribuir a 'La velada del año 4'! Juntos estamos construyendo algo increíble. 🚀
+¡Gracias por contribuir a 'Iglesia Sion'! Juntos estamos construyendo algo increíble. 🚀
