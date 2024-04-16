@@ -6,7 +6,7 @@ const { data } = Astro.props
 
 <section class="mt-10 overflow-hidden px-2 pb-48 pt-16 sm:pb-56 sm:pt-20 md:pb-28 md:pt-48">
 	<div class="container">
-		<div class="carousel">
+		<div id="carousel" class="carousel">
 			<input type="radio" name="slides" checked="checked" id="slide-1" />
 			<input type="radio" name="slides" id="slide-2" />
 			<input type="radio" name="slides" id="slide-3" />
@@ -28,7 +28,7 @@ const { data } = Astro.props
 					))
 				}
 			</ul>
-			<ul class="carousel__thumbnails">
+			<ul class="carousel__thumbnails invisible md:visible">
 				{
 					data.slides.map((item: CarouselData) => (
 						<li>
@@ -44,6 +44,9 @@ const { data } = Astro.props
 </section>
 
 <script is:inline>
+	import { getEventsData } from "@/services/data.service"
+
+	const eventData = await getEventsData()
 	// We prevent the page from moving when clicking on the thumbnails.
 	document.addEventListener("DOMContentLoaded", () => {
 		const labels = document.querySelectorAll(".carousel__thumbnails label")
@@ -55,6 +58,40 @@ const { data } = Astro.props
 				inputs[index].checked = true
 			})
 		})
+	})
+
+	document.addEventListener("DOMContentLoaded", async () => {
+		// Supongamos que 'data' es tu conjunto de datos
+		const data = JSON.stringify(eventData)
+
+		// Llena el carrusel con las imágenes de tus datos
+		const carousel = document.querySelector("#carousel")
+		data.forEach((item, index) => {
+			const img = document.createElement("img")
+			img.src = item.image
+			img.classList.add("carousel-image")
+			if (index === 0) {
+				img.classList.add("active") // Agrega la clase 'active' a la primera imagen
+			}
+			carousel.appendChild(img)
+		})
+
+		const images = document.querySelectorAll("#carousel .carousel-image")
+		let currentIndex = 0
+
+		function changeImage() {
+			// Remove the 'active' class from the current image
+			images[currentIndex].classList.remove("active")
+
+			// Update the index to point to the next image, wrapping around if necessary
+			currentIndex = (currentIndex + 1) % images.length
+
+			// Add the 'active' class to the new current image
+			images[currentIndex].classList.add("active")
+		}
+
+		// Change the image every 5 seconds
+		setInterval(changeImage, 5000)
 	})
 </script>
 
@@ -81,10 +118,15 @@ const { data } = Astro.props
 	}
 
 	section {
-		background: #f4f4f4;
 		padding: 50px 0;
 	}
+	#carousel .carousel-image {
+		display: none;
+	}
 
+	#carousel .carousel-image.active {
+		display: block;
+	}
 	.container {
 		max-width: 90%;
 		margin: 0 auto;
@@ -133,28 +175,28 @@ const { data } = Astro.props
 			}
 
 			&:nth-of-type(1):checked ~ .carousel__thumbnails li:nth-of-type(1) {
-				box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
+				box-shadow: 0 0 0 2px rgb(255, 255, 255);
 			}
 			&:nth-of-type(2):checked ~ .carousel__thumbnails li:nth-of-type(2) {
-				box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
+				box-shadow: 0 0 0 2px rgb(229, 229, 229);
 			}
 			&:nth-of-type(3):checked ~ .carousel__thumbnails li:nth-of-type(3) {
-				box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
+				box-shadow: 0 0 0 2px rgb(229, 229, 229);
 			}
 			&:nth-of-type(4):checked ~ .carousel__thumbnails li:nth-of-type(4) {
-				box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
+				box-shadow: 0 0 0 2px rgb(229, 229, 229);
 			}
 			&:nth-of-type(5):checked ~ .carousel__thumbnails li:nth-of-type(5) {
-				box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
+				box-shadow: 0 0 0 2px rgb(229, 229, 229);
 			}
 			&:nth-of-type(6):checked ~ .carousel__thumbnails li:nth-of-type(6) {
-				box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
+				box-shadow: 0 0 0 2px rgb(229, 229, 229);
 			}
 			&:nth-of-type(7):checked ~ .carousel__thumbnails li:nth-of-type(7) {
-				box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
+				box-shadow: 0 0 0 2px rgb(229, 229, 229);
 			}
 			&:nth-of-type(8):checked ~ .carousel__thumbnails li:nth-of-type(8) {
-				box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
+				box-shadow: 0 0 0 2px rgb(229, 229, 229);
 			}
 		}
 	}

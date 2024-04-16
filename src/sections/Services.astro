@@ -26,7 +26,15 @@ const { data } = Astro.props
 					</div>
 					<section>
 						<h3 class="mb-3 text-xl font-medium md:text-4xl">{service.title}</h3>
-						<p class="text-pretty opacity-90 md:text-lg">{service.description}</p>
+						{Array.isArray(service.description) ? (
+							<ul>
+								{service.description.map((value) => (
+									<li>{value}</li>
+								))}
+							</ul>
+						) : (
+							<p class="text-pretty opacity-90 md:text-lg">{service.description}</p>
+						)}
 					</section>
 				</article>
 			))

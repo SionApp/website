@@ -1,12 +1,13 @@
 ---
+import ContactUs from "../sections/ContactUs.astro"
 import Layout from "@/layouts/Layout.astro"
 import Adventajes from "@/sections/Adventajes.astro"
 import Brands from "@/sections/Brands.astro"
 import Footer from "@/sections/FooterLanding.astro"
 import Header from "@/sections/Header.astro"
 import Hero from "@/sections/HeroLanding.astro"
-import Pricing from "@/sections/Pricing.astro"
 import Services from "@/sections/Services.astro"
+import EventBanner from "@/sections/EventBanner.astro"
 import { getLandingData } from "@/services/data.service"
 
 const data = await getLandingData()
@@ -22,7 +23,9 @@ const data = await getLandingData()
 			<Services data={data.servicesData} />
 			<Adventajes data={data.adventajesData} />
 			<Brands data={data.brandsData} />
-			<Pricing data={data.pricingData} />
+			<EventBanner data={data.eventBannerData} />
+			<!--<Pricing data={data.pricingData} />-->
+			<ContactUs />
 		</div>
 		<Footer data={data.footerData} />
 	</main>

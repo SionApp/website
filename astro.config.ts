@@ -6,7 +6,7 @@ import { VitePWA } from "vite-plugin-pwa"
 import robotsTxt from "astro-robots-txt"
 
 // Helper imports
-import { manifest, seoConfig } from "./src/utils/seoConfig"
+import { manifest, seoConfig } from "@/utils/seoConfig.ts"
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,7 +15,13 @@ export default defineConfig({
 		enabled: false,
 	},
 	integrations: [tailwind(), sitemap(), robotsTxt()],
-	adapter: vercel(),
+	adapter: vercel({
+		imageService: true,
+		isr: {
+			// caches all pages on first request and saves for 1 day
+			expiration: 60 * 60 * 24,
+		},
+	}),
 	build: {
 		inlineStylesheets: "always",
 	},

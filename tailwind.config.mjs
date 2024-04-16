@@ -6,10 +6,14 @@ export default {
       colors: {
         white: "#FFFFFF",
         black: "#161925",
-        primary: "#1D4ED8",
-        secondary: "#0C8346",
+        primary: "#fca311",
+        secondary: "#E5E5E5",
+				tertiary: "#14213D",
       },
     },
   },
-  plugins: [require("tailwind-scrollbar")],
+  plugins: [
+		require("tailwind-scrollbar"),
+		require('@tailwindcss/forms'),
+	],
 };

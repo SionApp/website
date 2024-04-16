@@ -1,4 +1,5 @@
 export interface LandingPageData {
+	eventBannerData: EventBannerData
 	meta: Meta
 	headerData: HeaderData
 	heroData: HeroData
@@ -14,6 +15,11 @@ export interface HeaderData {
 	links: Link[]
 }
 
+export interface EventBannerData {
+	title: string
+	subtitle: string
+	image: string
+}
 export interface HeroData {
 	title: string
 	subTitle?: string
