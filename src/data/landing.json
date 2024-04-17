@@ -44,17 +44,23 @@
       {
         "title": "Mision",
         "icon": "DevIcon",
-        "description": "Hacer de cada creyente un ganador de almas y un hacedor de discípulos. (Mateo 28:19).\n"
+        "description": [
+          "Hacer de cada creyente un ganador de almas y un hacedor de discípulos. (Mateo 28:19)."
+        ]
       },
       {
         "title": "Vision",
         "icon": "PlanetIcon",
-        "description": "Ser una iglesia que ame a Dios, ame a su prójimo y sirva a sus semejantes. \n"
+        "description": [
+          "Ser una iglesia que ame a Dios, ame a su prójimo y sirva a sus semejantes."
+        ]
       },
       {
         "title": "Objetivos",
         "icon": "FileIcon",
-        "description": "Los objetivos de la Iglesia Sion, según sus normas doctrinales, se centran en fomentar un estilo de vida de adoración a Dios, siguiendo el mandamiento de Jesucristo de amar a Dios con todo el corazón, mente, alma y fuerzas."
+        "description": [
+          "Los objetivos de la Iglesia Sion, según sus normas doctrinales, se centran en fomentar un estilo de vida de adoración a Dios, siguiendo el mandamiento de Jesucristo de amar a Dios con todo el corazón, mente, alma y fuerzas."
+        ]
       },
       {
         "title": "Valores",

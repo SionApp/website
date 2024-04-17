@@ -36,7 +36,7 @@ export interface ServicesData {
 export interface Service {
 	title: string
 	icon: string
-	description: string
+	description: string[]
 }
 
 export interface AdventajesData {

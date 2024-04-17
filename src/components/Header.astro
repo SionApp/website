@@ -52,19 +52,16 @@ const pages = [
 					style="background:linear-gradient(to right, transparent 0%, white 50%, transparent 100%)"
 				/>
 				{
-					pages.map(({ disabled, name, href, active, soonDate }, key) => (
+					pages.map(({ name, href }, key) => (
 						<>
 							<a
 								href={href}
 								class:list={[
 									"relative flex flex-col items-center justify-center gap-2 text-xl capitalize",
-									{ "pointer-events-none": disabled },
-									{ "current-page-mob": active },
 								]}
 								id={`navmob-link-${key}`}
 							>
 								<span class="z-10 uppercase text-primary">{name}</span>
-								{disabled && <span class="text-accent">{soonDate}</span>}
 							</a>
 							<hr
 								class="h-[2px] w-full border-t-0"
