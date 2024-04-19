@@ -5,7 +5,7 @@ export interface LandingPageData {
 	heroData: HeroData
 	servicesData: ServicesData
 	adventajesData: AdventajesData
-	brandsData: BrandsData
+	discipleshipData: DiscipleshipData
 	pricingData: PricingData
 	footerData: FooterData
 }
@@ -69,10 +69,12 @@ export interface Social {
 	href: string
 }
 
-export interface BrandsData {
+export interface DiscipleshipData {
 	title: string
 	description: string
-	brands: Brand[]
+	img: string
+	imageAlt: string
+	href: string
 }
 
 export interface Brand {
@@ -143,4 +145,9 @@ export interface CarouselData {
 	image: string
 	title: string
 	description: string
+}
+
+export interface ButtonAction {
+	label?: string
+	href: string
 }

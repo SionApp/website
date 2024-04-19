@@ -10,9 +10,15 @@ interface Props {
 const { data } = Astro.props
 ---
 
-<footer class="flex w-full flex-col justify-center gap-y-8 bg-black pt-8 text-center text-white">
+<footer class="flex w-full flex-col justify-center gap-y-8 bg-gray-900 pt-8 text-center text-white">
 	<section>
-		<Action as="a" type="text" class="text-xl md:text-2xl" href="/">
+		<Action
+			as="a"
+			type="text"
+			class="flex items-center justify-center text-xl md:text-2xl"
+			href="/"
+		>
+			<img class="mr-2 h-7" src="/img/icons/favicon-32x32.png" alt="Company name" />
 			{data.logo}
 		</Action>
 	</section>

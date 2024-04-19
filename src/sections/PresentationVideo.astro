@@ -1,4 +1,5 @@
 ---
+import DrawnXLogo from "../components/DrawnXLogo.astro"
 import LiteYouTube from "@/components/LiteYouTube.astro"
 import Typography from "@/components/Typography.astro"
 ---
@@ -8,19 +9,10 @@ import Typography from "@/components/Typography.astro"
 		Presentación
 	</Typography>
 
-	<Typography
-		as="p"
-		variant="body"
-		color="neutral"
-		class:list={"mx-auto mt-4 max-w-[250px] text-wrap text-center"}
-	>
-		Presentación del Pentecostes, La Fiesta del Espiritu 2024.
-	</Typography>
-
 	<div class="relative mt-8">
-		<!--DrawnXLogo
-			class:list={"absolute inset-0 -z-10 m-auto scale-125 select-none drop-shadow-[0_0_40px_rgba(213,255,0,1)]"}
-		/> -->
+		<DrawnXLogo
+			class:list={"absolute inset-0 -z-10 m-auto w-full scale-150 select-none drop-shadow-[0_0_40px_rgba(213,255,0,1)]"}
+		/>
 		<LiteYouTube videoId="wQkuhl8jODU" backgroundImage="assets/carousel/image-08.jpg" />
 	</div>
 </section>
