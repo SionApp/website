@@ -22,4 +22,5 @@ pnpm-debug.log*
 .vercel/
 pnpm-lock.yaml
 yarn.lock
+package-lock.json
 .idea
