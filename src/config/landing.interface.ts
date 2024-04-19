@@ -148,6 +148,5 @@ export interface CarouselData {
 }
 
 export interface ButtonAction {
-	label?: string
 	href: string
 }
