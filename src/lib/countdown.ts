@@ -74,7 +74,9 @@ export default function countdown(startTime: TimeInput, opts?: Options) {
 	function stop() {
 		typeof opts?.onComplete === "function" && opts.onComplete()
 
-		if (intervalId) clearInterval(intervalId)
+		if (typeof intervalId === "number") {
+			clearInterval(intervalId)
+		}
 	}
 
 	function formatTime(time: number) {
