@@ -10,12 +10,12 @@ interface Props {
 const { data } = Astro.props
 ---
 
-<section>
+<section class="border-b border-gray-300">
 	<SectionTitle>
 		{data.title}
 	</SectionTitle>
 	<div
-		class="flex w-full flex-col items-center justify-between gap-y-10 border-b border-gray-200 md:flex-row md:gap-x-7 md:gap-y-8"
+		class="flex w-full flex-col items-center justify-between gap-y-10 md:flex-row md:gap-x-7 md:gap-y-8 2xl:py-9"
 	>
 		<div class="flex w-11/12 flex-col gap-y-6">
 			<p class="text-center text-lg md:text-start md:text-xl">
