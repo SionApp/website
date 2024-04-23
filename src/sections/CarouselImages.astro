@@ -5,8 +5,14 @@ const { data } = Astro.props
 ---
 
 <section class="mt-10 overflow-hidden px-2 pb-48 pt-16 sm:pb-56 sm:pt-20 md:pb-28 md:pt-48">
+	<h1 class="text-justify text-5xl font-bold text-white">... Pentecostes 2023</h1>
+	<span class="my-5 text-center font-sans text-xl text-white"
+		>"Del pentecostés pasado a este año: Más de 5 mil personas experimentaron el poder de la
+		presencia de Dios. ¡En esta ocasión, se esperan más de 8 mil personas reunidas para alabar y
+		glorificar su nombre!"</span
+	>
 	<div class="container">
-		<div id="carousel" class="carousel">
+		<div id="carousel" class="carousel py-16">
 			<input type="radio" name="slides" checked="checked" id="slide-1" />
 			<input type="radio" name="slides" id="slide-2" />
 			<input type="radio" name="slides" id="slide-3" />
@@ -21,7 +27,13 @@ const { data } = Astro.props
 						<li class="carousel__slide">
 							<figure>
 								<div>
-									<img width="auto" height="450" src={item.image} alt={item.description} />
+									<img
+										width="auto"
+										height="450"
+										src={item.image}
+										alt={item.description}
+										class="rounded-md"
+									/>
 								</div>
 							</figure>
 						</li>
@@ -33,7 +45,13 @@ const { data } = Astro.props
 					data.slides.map((item: CarouselData) => (
 						<li>
 							<label for={item.title}>
-								<img width="800" height="450" src={item.image} alt={item.description} />
+								<img
+									width="800"
+									height="450"
+									src={item.image}
+									alt={item.description}
+									class="rounded-2xl"
+								/>
 							</label>
 						</li>
 					))
@@ -43,7 +61,7 @@ const { data } = Astro.props
 	</div>
 </section>
 
-<script is:inline>
+<script>
 	import { getEventsData } from "@/services/data.service"
 
 	const eventData = await getEventsData()
@@ -171,27 +189,35 @@ const { data } = Astro.props
 
 			&:nth-of-type(1):checked ~ .carousel__thumbnails li:nth-of-type(1) {
 				box-shadow: 0 0 0 2px rgb(255, 255, 255);
+				border-radius: 10px;
 			}
 			&:nth-of-type(2):checked ~ .carousel__thumbnails li:nth-of-type(2) {
 				box-shadow: 0 0 0 2px rgb(229, 229, 229);
+				border-radius: 10px;
 			}
 			&:nth-of-type(3):checked ~ .carousel__thumbnails li:nth-of-type(3) {
 				box-shadow: 0 0 0 2px rgb(229, 229, 229);
+				border-radius: 10px;
 			}
 			&:nth-of-type(4):checked ~ .carousel__thumbnails li:nth-of-type(4) {
 				box-shadow: 0 0 0 2px rgb(229, 229, 229);
+				border-radius: 10px;
 			}
 			&:nth-of-type(5):checked ~ .carousel__thumbnails li:nth-of-type(5) {
 				box-shadow: 0 0 0 2px rgb(229, 229, 229);
+				border-radius: 10px;
 			}
 			&:nth-of-type(6):checked ~ .carousel__thumbnails li:nth-of-type(6) {
 				box-shadow: 0 0 0 2px rgb(229, 229, 229);
+				border-radius: 10px;
 			}
 			&:nth-of-type(7):checked ~ .carousel__thumbnails li:nth-of-type(7) {
 				box-shadow: 0 0 0 2px rgb(229, 229, 229);
+				border-radius: 10px;
 			}
 			&:nth-of-type(8):checked ~ .carousel__thumbnails li:nth-of-type(8) {
 				box-shadow: 0 0 0 2px rgb(229, 229, 229);
+				border-radius: 10px;
 			}
 		}
 	}

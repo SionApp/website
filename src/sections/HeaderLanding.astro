@@ -1,14 +1,14 @@
 ---
-import HamburgerButton from "@/components/HamburgerButton.astro"
-import HeroLogoPentecostes from "@/components/HeroLogoPentecostes.astro"
-import DrawnXLogo from "@/components/DrawnXLogo.astro"
-import FooterContent from "@/components/FooterContent.astro"
-import SocialButtons from "@/components/SocialButtons.astro"
-import { MOBILE_MENU_CONTENT_ID } from "@/consts/mobile-menu"
+import HamburgerButton from "../components/HamburgerButton.astro"
+import HeroLogoPentecostes from "../components/HeroLogoPentecostes.astro"
+import DrawnXLogo from "../components/DrawnXLogo.astro"
+import FooterContent from "../components/FooterContent.astro"
+import SocialButtons from "../components/SocialButtons.astro"
+import { MOBILE_MENU_CONTENT_ID } from "../consts/mobile-menu"
 
 const pages = [
-	{ name: "Sion", href: "/" },
 	{ name: "Pentecostes", href: "/pentecostes" },
+	{ name: "Sion", href: "/" },
 ].map((page) => ({
 	...page,
 	active: Astro.url.pathname === page.href,
@@ -20,14 +20,24 @@ const pages = [
 		aria-label="Main Navigation"
 		class="group flex h-full w-full items-center justify-end px-10 lg:justify-start"
 	>
-		<a
-			href="/"
-			class:list={[
-				"nav-item relative hidden h-full select-none flex-col items-center justify-center gap-1 text-center text-xl uppercase text-white lg:flex lg:px-7 xl:px-10",
-			]}
-		>
-			<span class="z-10">Sion</span>
-		</a>
+		{
+			pages.map(({ name, href }, key) => (
+				<>
+					<a
+						href={href}
+						class:list={[
+							"nav-item relative hidden h-full select-none flex-col items-center justify-around gap-1 text-center text-xl capitalize text-white lg:flex lg:px-7 xl:px-10 ",
+						]}
+						id={`nav-link-${key}`}
+					>
+						<span class="z-10">{name}</span>
+						<div class="background absolute -z-10 h-full w-full" />
+					</a>
+					{key === 1 && <div class:list={"hidden w-64 lg:block"} />}
+				</>
+			))
+		}
+
 		<a href="/" class="block lg:hidden"><DrawnXLogo class:list={"w-10"} /></a>
 		<HamburgerButton class:list={"block lg:hidden"} id="menuButton" />
 		<div
@@ -179,7 +189,7 @@ const pages = [
 </style>
 
 <script>
-	import { $ } from "@/lib/dom-selector"
+	import { $ } from "../lib/dom-selector"
 
 	const nav = $("nav")
 	const menuButton = $("#menuButton")
