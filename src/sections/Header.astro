@@ -1,6 +1,10 @@
 ---
 import Action from "@/components/ActionLanding.astro"
+import HamburgerButton from "@/components/HamburgerButton.astro"
+import SocialButtons from "@/components/SocialButtons.astro"
 import type { HeaderData } from "@/config/landing.interface"
+import { MOBILE_MENU_CONTENT_ID } from "@/consts/mobile-menu"
+import DrawnSLogo from "@/components/DrawnSLogo.astro"
 
 interface Props {
 	data: HeaderData
@@ -9,18 +13,18 @@ interface Props {
 const { data } = Astro.props
 ---
 
-<header
-	id="navbar"
-	class="fixed z-50 hidden h-20 w-full justify-center transition duration-300 md:flex"
->
-	<nav aria-label="Main Navigation" class="flex w-3/4 flex-row items-center">
+<header id="navbar" class="fixed z-50 flex h-20 w-full justify-center transition duration-300">
+	<nav
+		aria-label="Main Navigation"
+		class="invisible hidden w-3/4 flex-row items-center lg:visible lg:flex"
+	>
 		<div class="text-nowrap">
-			<Action as="a" class="text-xl" href="#">{data.logo}</Action>
+			<img src={data.logo} alt="Sion Logo" class="accent-drop-shadow max-w-32 drop-shadow-lg" />
 		</div>
-		<ul class="flex w-full flex-row justify-center gap-x-14">
+		<ul class="flex w-full flex-row justify-center gap-x-10">
 			{
 				data.links.map((item) => (
-					<li class="text-lg hover:scale-110 hover:opacity-80">
+					<li class="text-md hover:scale-110 hover:opacity-80">
 						<Action as="a" href={item.href}>
 							{item.label}
 						</Action>
@@ -30,14 +34,158 @@ const { data } = Astro.props
 		</ul>
 		<span></span>
 	</nav>
+
+	<nav
+		aria-label="Main Mobile"
+		class="group visible flex h-full w-full items-center justify-end px-10 lg:invisible lg:hidden lg:justify-start"
+	>
+		<a href="/" class="block lg:hidden"><DrawnSLogo class:list={"w-12"} /></a>
+		<HamburgerButton class:list={"block lg:hidden"} id="menuButton" />
+		<div
+			class="fixed inset-0 z-[888] flex w-screen flex-col items-center overflow-x-auto bg-black px-10 lg:hidden"
+			id={MOBILE_MENU_CONTENT_ID}
+		>
+			<aside class="flex min-h-16 w-full items-center justify-between">
+				<span class="text-xl font-semibold uppercase text-primary">Menú</span>
+				<HamburgerButton id="innerMenuButton" />
+			</aside>
+			<div class="flex min-h-2 w-full items-center">
+				<hr
+					class="h-[2px] w-full border-t-0"
+					style="background:linear-gradient(to right, transparent 0%, white 50%, transparent 1%)"
+				/>
+			</div>
+			<nav class="flex w-full flex-col items-center gap-3">
+				<img
+					src="/img/icons/logo-sion.png"
+					alt="Sion Logo"
+					class="accent-drop-shadow max-w-60 drop-shadow-lg"
+				/>
+				<hr class="h-[2px] w-full border-t-0 bg-primary" />
+				{
+					data.links.map((item, key) => (
+						<>
+							<a
+								href={item.href}
+								class:list={["relative flex flex-col items-center justify-center gap-2 text-xl"]}
+								id={`navmob-link-${key}`}
+							>
+								<span class="z-10 capitalize text-primary">{item.label}</span>
+							</a>
+							<hr
+								class="h-[2px] w-full border-t-0"
+								style="background:linear-gradient(to right, transparent 0%, white 50%, transparent 100%)"
+							/>
+						</>
+					))
+				}
+				<nav class="my-4 flex flex-col gap-10">
+					<SocialButtons class="flex items-center justify-center" />
+				</nav>
+			</nav>
+		</div>
+	</nav>
 </header>
 
-<script is:inline>
+<style is:inline>
+	#menuMobileContent {
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity 0.3s;
+		scrollbar-gutter: stable;
+	}
+
+	#menuMobileContent.open {
+		opacity: 1 !important;
+		pointer-events: all;
+	}
+
+	.accent-drop-shadow {
+		filter: drop-shadow(0px 0px 25px rgba(var(--color-accent-rgb), 0.25));
+	}
+	.current-page:before {
+		background: var(--color-accent);
+		width: 100%;
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 8px;
+	}
+	.current-page-mob:before {
+		background: var(--color-accent);
+		width: 10px;
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: -20px;
+		height: 10px;
+		border-radius: 100%;
+		transform: translateY(-50%);
+	}
+
+	.gridBottomBarContainer {
+		grid-template-columns: 1fr 6rem 1fr;
+		grid-template-rows: 4px;
+	}
+
+	@media (min-width: 1024px) {
+		.gridBottomBarContainer {
+			grid-template-columns: 1fr 9rem 1fr;
+		}
+	}
+	@media (prefers-reduced-motion) {
+		.nav-item .background {
+			transition: opacity 0s;
+		}
+
+		.nav-item:hover .background,
+		.nav-item:focus .background {
+			opacity: 1;
+		}
+
+		#menuMobileContent {
+			transition: opacity 0s;
+		}
+	}
+</style>
+<script>
+	import { $ } from "@/lib/dom-selector"
+
+	const nav = $("nav")
+	const menuButton = $("#menuButton")
+	const innerMenuButton = $("#innerMenuButton")
+
+	menuButton?.addEventListener("hamburgerButtonClicked", () => toggleMenu(nav))
+	innerMenuButton?.addEventListener("hamburgerButtonClicked", () => toggleMenu(nav))
+
+	function toggleMenu(nav: HTMLElement | null) {
+		$("#menuMobileContent")?.classList.toggle("open")
+		nav?.classList.toggle("open")
+		document.body.classList.toggle("overflow-hidden")
+		document.body.classList.toggle("lg:overflow-auto")
+	}
+
+	document.addEventListener("astro:page-load", () => {
+		const menuMobileContext = $("#menuMobileContent")
+
+		if (menuMobileContext?.classList.contains("open")) menuMobileContext?.classList.remove("open")
+
+		if (nav?.classList.contains("open")) nav?.classList.remove("open")
+
+		if (document.body.classList.contains("overflow-hidden"))
+			document.body.classList.remove("overflow-hidden")
+
+		if (document.body.classList.contains("lg:overflow-auto"))
+			document.body.classList.remove("lg:overflow-auto")
+	})
+
 	window.addEventListener("scroll", () => {
 		const navbar = document.getElementById("navbar")
 		if (!navbar) return
 
 		if (window.scrollY >= 20) {
+			navbar.classList.add("h-14")
 			navbar.classList.remove("border-b-transparent")
 			navbar.classList.remove("bg-transparent")
 			navbar.classList.add("border-b")

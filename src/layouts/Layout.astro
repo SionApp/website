@@ -2,6 +2,7 @@
 import Background from "@/components/Background.astro"
 import type { Meta } from "@/config/landing.interface"
 import "@fontsource-variable/rubik"
+import ButtonUp from "@/components/ButtonUp.astro"
 
 interface Props {
 	meta: Meta
@@ -29,6 +30,7 @@ const ldJson = JSON.stringify(meta.ldJson)
 	<body class="bg-white">
 		<Background />
 		<slot />
+		<ButtonUp />
 	</body>
 </html>
 
@@ -44,5 +46,8 @@ const ldJson = JSON.stringify(meta.ldJson)
 			Bitstream Vera Sans Mono,
 			Courier New,
 			monospace;
+	}
+	.scroll-smooth {
+		scroll-behavior: smooth;
 	}
 </style>

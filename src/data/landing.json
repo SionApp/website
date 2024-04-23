@@ -23,8 +23,9 @@
     }
   },
   "headerData": {
-    "logo": "Iglesia Sion",
+    "logo": "/img/icons/logo-sion.png",
     "links": [
+      { "label": "Pentecostes", "href": "/pentecostes" },
       { "label": "Sobre nosotros", "href": "/aboutUs" },
       { "label": "Discipulado", "href": "/discipleship" },
       { "label": "Servicios", "href": "/worshipServices" },
