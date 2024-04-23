@@ -67,11 +67,15 @@ const { data } = Astro.props
 	const eventData = await getEventsData()
 	// We prevent the page from moving when clicking on the thumbnails.
 	document.addEventListener("DOMContentLoaded", () => {
-		const labels = document.querySelectorAll(".carousel__thumbnails label")
-		const inputs = document.querySelectorAll('.carousel input[type="radio"]')
+		const labels: NodeListOf<Element> | any = document.querySelectorAll(
+			".carousel__thumbnails label"
+		)
+		const inputs: NodeListOf<Element> | any = document.querySelectorAll(
+			'.carousel input[type="radio"]'
+		)
 
-		labels.forEach((label, index) => {
-			label.addEventListener("click", (event) => {
+		labels.forEach((label: any, index: any) => {
+			label.addEventListener("click", (event: any) => {
 				event.preventDefault()
 				inputs[index].checked = true
 			})
@@ -79,9 +83,9 @@ const { data } = Astro.props
 	})
 
 	document.addEventListener("DOMContentLoaded", async () => {
-		const data = JSON.stringify(eventData)
-		const carousel = document.querySelector("#carousel")
-		data.forEach((item, index) => {
+		const data: any = JSON.stringify(eventData)
+		const carousel: any = document.querySelector("#carousel")
+		data.forEach((item: any, index: any) => {
 			const img = document.createElement("img")
 			img.src = item.image
 			img.classList.add("carousel-image")
