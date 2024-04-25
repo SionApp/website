@@ -19,12 +19,14 @@ const data = await getLandingData()
 		<div class="w-full">
 			<Hero data={data.heroData} />
 		</div>
-		<div class="w-3/4">
+		<div class="w-10/12 2xl:w-3/4">
 			<Adventajes data={data.adventajesData} />
 			<Discipleship data={data.discipleshipData} />
 			<EventBanner data={data.eventBannerData} />
-			<ContactUs />
+			<ContactUs locationData={data.locationData} servicesHoursData={data.servicesHoursData} />
 		</div>
-		<Footer data={data.footerData} />
+		<div class="w-full">
+			<Footer data={data.footerData} />
+		</div>
 	</main>
 </Layout>

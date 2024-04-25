@@ -6,7 +6,8 @@ export interface LandingPageData {
 	servicesData: ServicesData
 	adventajesData: AdventajesData
 	discipleshipData: DiscipleshipData
-	pricingData: PricingData
+	locationData: LocationData
+	servicesHoursData: ServicesHoursData
 	footerData: FooterData
 }
 
@@ -20,6 +21,7 @@ export interface EventBannerData {
 	subtitle: string
 	image: string
 }
+
 export interface HeroData {
 	title: string
 	subTitle?: string
@@ -83,24 +85,6 @@ export interface Brand {
 	href: string
 }
 
-export interface PricingData {
-	title: string
-	tiers: Tier[]
-}
-
-export interface Tier {
-	title: string
-	description: string
-	price: Price
-	features: string[]
-	cta: string
-}
-
-export interface Price {
-	amount: string
-	period?: string
-}
-
 export interface Meta {
 	title: string
 	description: string
@@ -134,12 +118,6 @@ export type Icon =
 	| "GithubIcon"
 	| "TwitterIcon"
 	| "FacebookIcon"
-	| "ReactIcon"
-	| "SvelteIcon"
-	| "SolidIcon"
-	| "VueIcon"
-	| "VercelIcon"
-	| "NetlifyIcon"
 
 export interface CarouselData {
 	image: string
@@ -149,4 +127,20 @@ export interface CarouselData {
 
 export interface ButtonAction {
 	href: string
+}
+
+export interface LocationData {
+	title: string
+	description: string
+	address: string
+	phone: string
+}
+
+export interface servicesHours {
+	day: string
+	hours: string[]
+}
+export interface ServicesHoursData {
+	title: string
+	servicesHours: servicesHours[]
 }

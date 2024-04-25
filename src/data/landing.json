@@ -25,12 +25,30 @@
   "headerData": {
     "logo": "/img/icons/logo-sion.png",
     "links": [
-      { "label": "Pentecostes", "href": "/pentecostes" },
-      { "label": "Sobre nosotros", "href": "/aboutUs" },
-      { "label": "Discipulado", "href": "/discipleship" },
-      { "label": "Servicios", "href": "/worshipServices" },
-      { "label": "Carteras", "href": "/departments" },
-      { "label": "Contactanos", "href": "/contactUs" }
+      {
+        "label": "Pentecostes",
+        "href": "/pentecostes"
+      },
+      {
+        "label": "Sobre nosotros",
+        "href": "/aboutUs"
+      },
+      {
+        "label": "Discipulado",
+        "href": "/discipleship"
+      },
+      {
+        "label": "Servicios",
+        "href": "/worshipServices"
+      },
+      {
+        "label": "Carteras",
+        "href": "/departments"
+      },
+      {
+        "label": "Contactanos",
+        "href": "/contactUs"
+      }
     ]
   },
   "heroData": {
@@ -109,37 +127,26 @@
     "subtitle": "La Fiesta Del Espiritu.",
     "image": "assets/carousel/image-08.jpg"
   },
-  "pricingData": {
-    "title": "Our Pricing",
-    "tiers": [
+  "locationData": {
+    "title": "Ubicación",
+    "description": "Estamos ubicados en la ciudad de Coro, Estado Falcón, Venezuela.",
+    "address": "Calle Churuguara entre Ampíes y Comercio, #110, Santa Ana de Coro, Venezuela",
+    "phone": "0268-2530558"
+  },
+  "servicesHoursData": {
+    "title": "Horarios de Servicios",
+    "servicesHours": [
       {
-        "title": "Starter",
-        "description": "Best option for personal use & for your next project.",
-        "price": {
-          "amount": "Free"
-        },
-        "features": ["feature 1", "feature 2", "feature 3", "feature 4", "feature 5"],
-        "cta": "Get started"
+        "day": "Domingo",
+        "hours": ["7:00am - 9:00am", "9:00am - 11:00am", "11:00am - 1:00pm"]
       },
       {
-        "title": "Professional",
-        "description": "Relevant for multiple users, extended & premium support.",
-        "price": {
-          "amount": "$29",
-          "period": "/month"
-        },
-        "features": ["feature 1", "feature 2", "feature 3", "feature 4", "feature 5"],
-        "cta": "Get started"
+        "day": "Viernes",
+        "hours": ["7:00am - 8:30am"]
       },
       {
-        "title": "Enterprise",
-        "description": "Best for large scale uses and extended redistribution rights.",
-        "price": {
-          "amount": "$59",
-          "period": "/month"
-        },
-        "features": ["feature 1", "feature 2", "feature 3", "feature 4", "feature 5"],
-        "cta": "Get started"
+        "day": "Sabado",
+        "hours": ["2:30pm - 4:00pm"]
       }
     ]
   },
@@ -147,16 +154,40 @@
     "logo": "Sion - Cambiando Vidas",
     "description": "Iglesia Cristiana Evangélica Pentecostal",
     "links": [
-      { "label": "Sobre nosotros", "href": "/aboutUs" },
-      { "label": "Discipulado", "href": "/discipleship" },
-      { "label": "Servicios", "href": "/worshipServices" },
-      { "label": "Carteras", "href": "/departments" },
-      { "label": "Contactanos", "href": "/contactUs" }
+      {
+        "label": "Sobre nosotros",
+        "href": "/aboutUs"
+      },
+      {
+        "label": "Discipulado",
+        "href": "/discipleship"
+      },
+      {
+        "label": "Servicios",
+        "href": "/worshipServices"
+      },
+      {
+        "label": "Carteras",
+        "href": "/departments"
+      },
+      {
+        "label": "Contactanos",
+        "href": "/contactUs"
+      }
     ],
     "socials": [
-      { "icon": "FacebookIcon", "href": "https://www.facebook.com/IglesiaSionCoro" },
-      { "icon": "InstagramIcon", "href": "https://www.instagram.com/iglesiasioncoro/" },
-      { "icon": "TwitterIcon", "href": "/" }
+      {
+        "icon": "FacebookIcon",
+        "href": "https://www.facebook.com/IglesiaSionCoro"
+      },
+      {
+        "icon": "InstagramIcon",
+        "href": "https://www.instagram.com/iglesiasioncoro/"
+      },
+      {
+        "icon": "TwitterIcon",
+        "href": "/"
+      }
     ]
   }
 }
