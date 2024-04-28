@@ -19,7 +19,9 @@ const { data } = Astro.props
 		class="invisible hidden w-3/4 flex-row items-center lg:visible lg:flex"
 	>
 		<div class="text-nowrap">
-			<img src={data.logo} alt="Sion Logo" class="accent-drop-shadow max-w-32 drop-shadow-lg" />
+			<a href="/">
+				<img src={data.logo} alt="Sion Logo" class="accent-drop-shadow max-w-32 drop-shadow-lg" />
+			</a>
 		</div>
 		<ul class="flex w-full flex-row justify-center gap-x-10">
 			{
