@@ -13,6 +13,7 @@ export interface LandingPageData {
 
 export interface HeaderData {
 	logo: string
+	home: string
 	links: Link[]
 }
 

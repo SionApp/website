@@ -19,9 +19,9 @@ const { data } = Astro.props
 		class="invisible hidden w-3/4 flex-row items-center lg:visible lg:flex"
 	>
 		<div class="text-nowrap">
-			<a href="/">
+			<Action as="a" href={data.home}>
 				<img src={data.logo} alt="Sion Logo" class="accent-drop-shadow max-w-32 drop-shadow-lg" />
-			</a>
+			</Action>
 		</div>
 		<ul class="flex w-full flex-row justify-center gap-x-10">
 			{
@@ -119,6 +119,7 @@ const { data } = Astro.props
 	.accent-drop-shadow {
 		filter: drop-shadow(0px 0px 25px rgba(var(--color-accent-rgb), 0.25));
 	}
+
 	.current-page:before {
 		background: var(--color-accent);
 		width: 100%;
@@ -128,6 +129,7 @@ const { data } = Astro.props
 		left: 0;
 		height: 8px;
 	}
+
 	.current-page-mob:before {
 		background: var(--color-accent);
 		width: 10px;
@@ -150,6 +152,7 @@ const { data } = Astro.props
 			grid-template-columns: 1fr 9rem 1fr;
 		}
 	}
+
 	@media (prefers-reduced-motion) {
 		.nav-item .background {
 			transition: opacity 0s;
@@ -172,9 +175,7 @@ const { data } = Astro.props
 	const nav = $("nav")
 	const menuButton = $("#menuButton")
 	const innerMenuButton = $("#innerMenuButton")
-
-	menuButton?.addEventListener("hamburgerButtonClicked", () => toggleMenu(nav))
-	innerMenuButton?.addEventListener("hamburgerButtonClicked", () => toggleMenu(nav))
+	const link = $("a")
 
 	function toggleMenu(nav: HTMLElement | null) {
 		$("#menuMobileContent")?.classList.toggle("open")
@@ -182,6 +183,14 @@ const { data } = Astro.props
 		document.body.classList.toggle("overflow-hidden")
 		document.body.classList.toggle("lg:overflow-auto")
 	}
+
+	function handleClick(event: any) {
+		event.preventDefault()
+	}
+
+	menuButton?.addEventListener("hamburgerButtonClicked", () => toggleMenu(nav))
+	innerMenuButton?.addEventListener("hamburgerButtonClicked", () => toggleMenu(nav))
+	link.addEventListener("click", handleClick)
 
 	document.addEventListener("astro:page-load", () => {
 		const menuMobileContext = $("#menuMobileContent")

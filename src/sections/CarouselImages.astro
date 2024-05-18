@@ -62,17 +62,13 @@ const { data } = Astro.props
 </section>
 
 <script>
-	import { getEventsData } from "@/services/data.service"
+	import { $$ } from "@/lib/dom-selector"
 
-	const eventData = await getEventsData()
+	// const eventData = await getEventsData()
 	// We prevent the page from moving when clicking on the thumbnails.
 	document.addEventListener("DOMContentLoaded", () => {
-		const labels: NodeListOf<Element> | any = document.querySelectorAll(
-			".carousel__thumbnails label"
-		)
-		const inputs: NodeListOf<Element> | any = document.querySelectorAll(
-			'.carousel input[type="radio"]'
-		)
+		const labels: NodeListOf<Element> | any = $$(".carousel__thumbnails label")
+		const inputs: NodeListOf<Element> | any = $$('.carousel input[type="radio"]')
 
 		labels.forEach((label: any, index: any) => {
 			label.addEventListener("click", (event: any) => {
@@ -82,34 +78,35 @@ const { data } = Astro.props
 		})
 	})
 
-	document.addEventListener("DOMContentLoaded", async () => {
-		const data: any = JSON.stringify(eventData)
-		const carousel: any = document.querySelector("#carousel")
-		data.forEach((item: any, index: any) => {
-			const img = document.createElement("img")
-			img.src = item.image
-			img.classList.add("carousel-image")
-			if (index === 0) {
-				img.classList.add("active") // Agrega la clase 'active' a la primera imagen
-			}
-			carousel.appendChild(img)
-		})
-
-		const images = document.querySelectorAll("#carousel .carousel-image")
-		let currentIndex = 0
-
-		function changeImage() {
-			// Remove the 'active' class from the current image
-			images[currentIndex].classList.remove("active")
-			// Update the index to point to the next image, wrapping around if necessary
-			currentIndex = (currentIndex + 1) % images.length
-			// Add the 'active' class to the new current image
-			images[currentIndex].classList.add("active")
-		}
-
-		// Change the image every 5 seconds
-		setInterval(changeImage, 5000)
-	})
+	// document.addEventListener("DOMContentLoaded", async () => {
+	// 	const data: any = JSON.stringify(eventData)
+	// 	console.log(data)
+	// 	const carousel: any = document.querySelector("#carousel")
+	// 	data.forEach((item: any, index: any) => {
+	// 		const img = document.createElement("img")
+	// 		img.src = item.image
+	// 		img.classList.add("carousel-image")
+	// 		if (index === 0) {
+	// 			img.classList.add("active") // Agrega la clase 'active' a la primera imagen
+	// 		}
+	// 		carousel.appendChild(img)
+	// 	})
+	//
+	// 	const images = $$("#carousel .carousel-image")
+	// 	let currentIndex = 0
+	//
+	// 	function changeImage() {
+	// 		// Remove the 'active' class from the current image
+	// 		images[currentIndex].classList.remove("active")
+	// 		// Update the index to point to the next image, wrapping around if necessary
+	// 		currentIndex = (currentIndex + 1) % images.length
+	// 		// Add the 'active' class to the new current image
+	// 		images[currentIndex].classList.add("active")
+	// 	}
+	//
+	// 	// Change the image every 5 seconds
+	// 	setInterval(changeImage, 5000)
+	// })
 </script>
 
 <style>
@@ -120,7 +117,7 @@ const { data } = Astro.props
 			display: block;
 			content: "";
 			width: 100%;
-			padding-top: ($height / $width) * 100%;
+			padding-top: ($height / $width) * 100 %;
 		}
 
 		> img {
@@ -137,6 +134,7 @@ const { data } = Astro.props
 	section {
 		padding: 50px 0;
 	}
+
 	#carousel .carousel-image {
 		display: none;
 	}
@@ -144,6 +142,7 @@ const { data } = Astro.props
 	#carousel .carousel-image.active {
 		display: block;
 	}
+
 	.container {
 		max-width: 90%;
 		margin: 0 auto;
@@ -169,24 +168,31 @@ const { data } = Astro.props
 			&:nth-of-type(8):checked ~ .carousel__slides .carousel__slide:first-of-type {
 				margin-left: -700%;
 			}
+
 			&:nth-of-type(7):checked ~ .carousel__slides .carousel__slide:first-of-type {
 				margin-left: -600%;
 			}
+
 			&:nth-of-type(6):checked ~ .carousel__slides .carousel__slide:first-of-type {
 				margin-left: -500%;
 			}
+
 			&:nth-of-type(5):checked ~ .carousel__slides .carousel__slide:first-of-type {
 				margin-left: -400%;
 			}
+
 			&:nth-of-type(4):checked ~ .carousel__slides .carousel__slide:first-of-type {
 				margin-left: -300%;
 			}
+
 			&:nth-of-type(3):checked ~ .carousel__slides .carousel__slide:first-of-type {
 				margin-left: -200%;
 			}
+
 			&:nth-of-type(2):checked ~ .carousel__slides .carousel__slide:first-of-type {
 				margin-left: -100%;
 			}
+
 			&:nth-of-type(1):checked ~ .carousel__slides .carousel__slide:first-of-type {
 				margin-left: 0%;
 			}
@@ -195,30 +201,37 @@ const { data } = Astro.props
 				box-shadow: 0 0 0 2px rgb(255, 255, 255);
 				border-radius: 10px;
 			}
+
 			&:nth-of-type(2):checked ~ .carousel__thumbnails li:nth-of-type(2) {
 				box-shadow: 0 0 0 2px rgb(229, 229, 229);
 				border-radius: 10px;
 			}
+
 			&:nth-of-type(3):checked ~ .carousel__thumbnails li:nth-of-type(3) {
 				box-shadow: 0 0 0 2px rgb(229, 229, 229);
 				border-radius: 10px;
 			}
+
 			&:nth-of-type(4):checked ~ .carousel__thumbnails li:nth-of-type(4) {
 				box-shadow: 0 0 0 2px rgb(229, 229, 229);
 				border-radius: 10px;
 			}
+
 			&:nth-of-type(5):checked ~ .carousel__thumbnails li:nth-of-type(5) {
 				box-shadow: 0 0 0 2px rgb(229, 229, 229);
 				border-radius: 10px;
 			}
+
 			&:nth-of-type(6):checked ~ .carousel__thumbnails li:nth-of-type(6) {
 				box-shadow: 0 0 0 2px rgb(229, 229, 229);
 				border-radius: 10px;
 			}
+
 			&:nth-of-type(7):checked ~ .carousel__thumbnails li:nth-of-type(7) {
 				box-shadow: 0 0 0 2px rgb(229, 229, 229);
 				border-radius: 10px;
 			}
+
 			&:nth-of-type(8):checked ~ .carousel__thumbnails li:nth-of-type(8) {
 				box-shadow: 0 0 0 2px rgb(229, 229, 229);
 				border-radius: 10px;

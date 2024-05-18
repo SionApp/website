@@ -24,13 +24,18 @@
   },
   "headerData": {
     "logo": "/img/icons/logo-sion.png",
+    "home": "/",
     "links": [
+      {
+        "label": "Inicio",
+        "href": "/"
+      },
       {
         "label": "Pentecostes",
         "href": "/pentecostes"
       },
       {
-        "label": "Sobre nosotros",
+        "label": "Nosotros",
         "href": "/aboutUs"
       },
       {

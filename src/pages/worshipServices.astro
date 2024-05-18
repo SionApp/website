@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro"
 import Header from "../sections/Header.astro"
+import OurTeamIndividual from "../components/OurTeamIndividual.astro"
 import { getLandingData } from "@/services/data.service"
 
 const data = await getLandingData()
@@ -9,6 +10,32 @@ const data = await getLandingData()
 <Layout meta={data.meta}>
 	<Header data={data.headerData} />
 	<main class="flex flex-col items-center justify-center">
-		<div class="w-full"></div>
+		<div class="relative isolate mt-20 bg-white px-6 sm:mt-56 lg:px-8">
+			<div class="bg-white py-24 md:py-32 lg:py-40">
+				<div
+					class="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3"
+				>
+					<div class="mx-auto max-w-2xl lg:mx-0">
+						<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+							Nuestros Pastores
+						</h2>
+						<p class="mt-6 text-lg leading-8 text-gray-600">
+							We’re a dynamic group of individuals who are passionate about what we do and dedicated
+							to delivering the best results for our clients.
+						</p>
+					</div>
+					<ul
+						class="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-20 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:gap-x-8 xl:col-span-2"
+					>
+						<li>
+							<OurTeamIndividual />
+						</li>
+						<li>
+							<OurTeamIndividual />
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
 	</main>
 </Layout>
