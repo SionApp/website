@@ -280,12 +280,16 @@ const data = await getLandingData()
 </Layout>
 
 <script>
-	document.getElementById("contact-us-form").addEventListener("submit", (event) => {
+	document.getElementById("contact-us-form")?.addEventListener("submit", (event) => {
 		event.preventDefault()
-		const form = {}
-		const formData = new FormData(event.target)
-		for (const [key, value] of formData.entries()) {
-			form[key] = value
+
+		const form: { [key: string]: FormDataEntryValue } = {}
+
+		if (event.target && event.target instanceof HTMLFormElement) {
+			const formData = new FormData(event.target)
+			for (const [key, value] of formData.entries()) {
+				form[key] = value
+			}
 		}
 	})
 </script>
