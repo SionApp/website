@@ -68,7 +68,7 @@ const { data } = Astro.props
 	// We prevent the page from moving when clicking on the thumbnails.
 	document.addEventListener("DOMContentLoaded", () => {
 		const labels: NodeListOf<Element> | any = $$(".carousel__thumbnails label")
-		const inputs: NodeListOf<Element> | any = $$('.carousel input[type="radio"]')
+		const inputs: NodeListOf<Element> | any = $$(`.carousel input[type="radio"]`)
 
 		labels.forEach((label: any, index: any) => {
 			label.addEventListener("click", (event: any) => {
