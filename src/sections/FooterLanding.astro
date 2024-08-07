@@ -29,22 +29,22 @@ const { data } = Astro.props
 					}
 				</div>
 			</div>
-			<div class="mt-16 grid grid-cols-1 items-center justify-center gap-8 xl:col-span-2 xl:mt-0">
-				<div class="text-white md:flex md:gap-12">
+			<div class="mx-auto max-w-7xl overflow-hidden px-10 py-20 sm:py-24 lg:px-8">
+				<nav class="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12" aria-label="Footer">
 					{
 						data.links.map((link) => (
-							<Action as="a" type="text" href={link.href}>
-								{link.label}
-							</Action>
+							<div class="pb-6">
+								<a href={link.href} class="text-sm leading-6 text-white hover:text-gray-100">{link.label}</a>
+							</div>
 						))
 					}
-				</div>
+				</nav>
 			</div>
-			<div class="mt-1 border-t border-white/10">
-				<p class="text-xs leading-5 text-gray-400">
-					&copy; 2020 Your Company, Inc. All rights reserved.
-				</p>
-			</div>
+		</div>
+		<div class="mt-1 border-t border-white/10">
+			<p class="text-xs leading-5 text-gray-400">
+				&copy; 2020 Your Company, Inc. All rights reserved.
+			</p>
 		</div>
 	</div>
 </footer>

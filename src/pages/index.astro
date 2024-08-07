@@ -15,11 +15,11 @@ const data = await getLandingData()
 
 <Layout meta={data.meta}>
 	<Header data={data.headerData} />
-	<main class="flex flex-col items-center justify-center">
+	<main class="flex flex-col items-center justify-center w-auto">
 		<div class="w-full">
 			<Hero data={data.heroData} />
 		</div>
-		<div class="w-10/12 2xl:w-3/4">
+		<div class="w-10/12 lg:w-8/12">
 			<Adventajes data={data.adventajesData} />
 			<Discipleship data={data.discipleshipData} />
 			<EventBanner data={data.eventBannerData} />
