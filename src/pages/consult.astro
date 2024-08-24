@@ -2,8 +2,12 @@
 import Layout from "../layouts/Layout.astro"
 import Header from "../sections/Header.astro"
 import { getLandingData } from "@/services/data.service"
+import useUser from "@/api/services/register"
 
 const data = await getLandingData()
+const user = useUser()
+
+user.createUser()
 ---
 
 <Layout meta={data.meta}>

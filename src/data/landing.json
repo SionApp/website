@@ -151,6 +151,17 @@
       }
     ]
   },
+  "aboutUs": {
+    "title": "Somo la Iglesia Sion",
+    "description": "En Iglesia Sion, somos una comunidad cristiana comprometida con la enseñanza de la palabra de Dios y la transformación de vidas Desde nuestros inicios en Coro, hemos trabajado incansablemente para ser una luz en nuestra ciudad, guiando a las personas hacia una relación más cercana con Jesucristo.",
+    "textOne": "Nuestra razón de ser es simple pero poderosa: glorificar a Dios y cumplir con Su gran mandato de hacer discípulos en todas las naciones. Cada servicio, ministerio y evento que organizamos está centrado en este propósito, buscando impactar vidas y comunidades para el Reino de Dios.",
+    "textTwo": "Creemos en amar a Dios y a nuestro prójimo con todo el corazón. Por eso, cada miembro de nuestra iglesia es llamado a servir a los demás, llevando el mensaje de salvación a cada rincón de nuestra ciudad y más allá. Aquí, encontrarás un espacio donde tu fe puede florecer y donde puedes ser parte de un movimiento que está cambiando vidas."
+  },
+  "discipleship": {
+    "title": "Crece en tu Fe, Multiplica Discípulos",
+    "subtitle": "El discipulado en Iglesia Sion es un camino de crecimiento espiritual donde cada creyente es llamado a formar y guiar a otros en su fe. Únete a nosotros y vive la experiencia de ser transformado y de transformar vidas en Cristo.",
+    "headerPicture": "Discipular es la máxima expresión de amor cristiano, es acompañar al discípulo hasta junto llegar al Reino de los cielos"
+  },
   "footerData": {
     "logo": "Sion - Cambiando Vidas",
     "description": "Iglesia Cristiana Evangélica Pentecostal",

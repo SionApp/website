@@ -6,6 +6,8 @@ export interface LandingPageData {
 	servicesData: ServicesData
 	adventajesData: AdventajesData
 	discipleshipData: DiscipleshipData
+	discipleship: Discipleship
+	aboutUs: AboutUs
 	locationData: LocationData
 	servicesHoursData: ServicesHoursData
 	footerData: FooterData
@@ -78,6 +80,19 @@ export interface DiscipleshipData {
 	img: string
 	imageAlt: string
 	href: string
+}
+
+export interface Discipleship {
+	title: string
+	subtitle: string
+	headerPicture: string
+}
+
+export interface AboutUs {
+	title: string
+	description: string
+	textOne: string
+	textTwo: string
 }
 
 export interface Brand {

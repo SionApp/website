@@ -4,6 +4,7 @@ import Header from "../sections/Header.astro"
 import { getLandingData } from "@/services/data.service"
 
 const data = await getLandingData()
+const { title, subtitle, headerPicture } = data.discipleship
 ---
 
 <Layout meta={data.meta}>
@@ -22,12 +23,11 @@ const data = await getLandingData()
 			</div>
 			<div class="mx-auto max-w-2xl text-center lg:max-w-4xl">
 				<p class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-					The right price for you, whoever you are
+					{title}
 				</p>
 			</div>
 			<p class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">
-				Qui iusto aut est earum eos quae. Eligendi est at nam aliquid ad quo reprehenderit in
-				aliquid fugiat dolorum voluptatibus.
+				{subtitle}
 			</p>
 		</div>
 
@@ -69,14 +69,12 @@ const data = await getLandingData()
 						</svg>
 						<blockquote class="text-xl font-semibold leading-8 text-white sm:text-2xl sm:leading-9">
 							<p>
-								Gravida quam mi erat tortor neque molestie. Auctor aliquet at porttitor a enim nunc
-								suscipit tincidunt nunc. Et non lorem tortor posuere. Nunc eu scelerisque interdum
-								eget tellus non nibh scelerisque bibendum.
+								{headerPicture}
 							</p>
 						</blockquote>
 						<figcaption class="mt-8 text-base">
-							<div class="font-semibold text-white">Judith Black</div>
-							<div class="mt-1 text-gray-400">CEO of Tuple</div>
+							<div class="font-semibold text-white">Othiel Morales</div>
+							<div class="mt-1 text-gray-400">Pastor General.</div>
 						</figcaption>
 					</figure>
 				</div>
@@ -84,14 +82,14 @@ const data = await getLandingData()
 		</div>
 
 		<!--Testimonial -->
-		<div class="relative isolate mt-32 sm:mt-56 sm:pt-32 xl:my-8">
+		<div class="relative isolate mt-32 sm:mt-56 sm:pt-12 xl:my-8">
 			<div class="mx-auto max-w-7xl px-6 lg:px-8">
 				<div class="mx-auto max-w-xl sm:text-center">
 					<h2 class="text-lg font-semibold leading-8 tracking-tight text-indigo-600">
-						Testimonials
+						Testimonios
 					</h2>
 					<p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-						We have worked with thousands of amazing people
+						Algunos testimonios de nuestros discipulos ya bautizados en las aguas.
 					</p>
 				</div>
 				<div
@@ -117,7 +115,7 @@ const data = await getLandingData()
 								<div class="font-semibold">Brenna Goyette</div>
 								<div class="text-gray-600">@brennagoyette</div>
 							</div>
-							<img class="h-10 w-auto flex-none" src="/img/family.jpeg" alt="" />
+							<img class="h-10 w-auto flex-none" src="/img/family.jpeg" alt="family" />
 						</figcaption>
 					</figure>
 					<div class="space-y-8 xl:contents xl:space-y-0">
