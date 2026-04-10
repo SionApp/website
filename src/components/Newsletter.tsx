@@ -9,11 +9,11 @@ const Newsletter = () => {
   const events: EventProps[] = [
     {
       id: 1,
-      title: "Retiro Espiritual 2024",
+      title: "Retiro Espiritual 2026",
       description: "Únete a nosotros para un fin de semana de renovación espiritual en las montañas.",
-      date: "2024-02-15",
+      date: "2026-04-02",
       time: "6:00 PM",
-      location: "Centro de Retiros El Refugio",
+      location: "Posada Privada",
       category: "retiro",
       image: "https://images.unsplash.com/photo-1510936111840-65e151ad71bb?q=80&w=2690&auto=format&fit=crop",
       featured: true
@@ -22,9 +22,9 @@ const Newsletter = () => {
       id: 2,
       title: "Conferencia de Jóvenes",
       description: "Tres días de enseñanza, adoración y compañerismo para jóvenes de 13 a 25 años.",
-      date: "2024-02-28",
+      date: "2026-02-28",
       time: "7:00 PM",
-      location: "Iglesia Vida Nueva",
+      location: "Iglesia Sion",
       category: "jovenes",
       image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=2670&auto=format&fit=crop"
     }

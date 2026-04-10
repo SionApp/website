@@ -72,13 +72,13 @@ const EventCard = ({ event, onRegister }: EventCardProps) => {
               </div>
             </div>
 
-            <Button
+            {/* <Button
               className="w-full group/btn bg-primary/10 hover:bg-primary text-primary hover:text-primary-foreground border-0"
               onClick={() => onRegister?.(event)}
             >
               Inscribirse
               <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover/btn:translate-x-1" />
-            </Button>
+            </Button> */}
           </div>
         </CardContent>
       </Card>

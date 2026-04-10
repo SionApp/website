@@ -50,9 +50,9 @@ const Header = () => {
             <button onClick={() => handleNavigation('#nosotros')} className="text-muted-foreground hover:text-foreground transition-colors">
               Nosotros
             </button>
-            <button onClick={() => handleNavigation('#streaming')} className="text-muted-foreground hover:text-foreground transition-colors">
+            {/* <button onClick={() => handleNavigation('#streaming')} className="text-muted-foreground hover:text-foreground transition-colors">
               En Vivo
-            </button>
+            </button> */}
             <Link to="/galeria" className="text-muted-foreground hover:text-foreground transition-colors">
               Galería
             </Link>

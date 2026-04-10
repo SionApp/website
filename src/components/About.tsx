@@ -96,7 +96,7 @@ const About = () => {
             </h3>
             <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
               <p>
-                Desde 1995, hemos sido una luz en nuestra comunidad, predicando la Palabra de Dios
+                Hemos sido una luz en nuestra comunidad, predicando la Palabra de Dios
                 con poder y dedicación. Comenzamos como un pequeño grupo de creyentes con el sueño
                 de ver vidas transformadas por el poder del Evangelio.
               </p>
@@ -105,10 +105,10 @@ const About = () => {
                 espiritual, el servicio a la comunidad y la expansión del Reino de Dios.
               </p>
             </div>
-            <Button variant="outline" size="lg" className="group bg-primary text-primary-foreground">
+            {/* <Button variant="outline" size="lg" className="group bg-primary text-primary-foreground">
               Conoce Más de Nuestra Historia
               <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-            </Button>
+            </Button> */}
           </div>
           <div className="relative group">
             <div className="absolute inset-0 bg-primary/20 rounded-2xl transform rotate-3 transition-transform duration-500 group-hover:rotate-6"></div>
@@ -151,25 +151,25 @@ const About = () => {
                 Nuestro Pastor
               </h3>
               <h4 className="text-xl font-semibold text-primary">
-                Pastor Carlos Mendoza
+                Pastor Othiel Morales
               </h4>
             </div>
             <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
               <p>
-                Con más de 20 años de ministerio, el Pastor Carlos ha dedicado su vida a
+                Con más de 30 años de ministerio, el Pastor Othiel ha dedicado su vida a
                 predicar la Palabra de Dios con pasión y autenticidad. Su corazón por las
                 almas perdidas y su amor por la iglesia local han sido pilares fundamentales
                 de nuestro crecimiento.
               </p>
               <p>
-                Junto a su esposa María y sus dos hijos, forman una familia comprometida
+                Junto a su esposa Mirian y sus dos hijos, forman una familia comprometida
                 con el servicio a Dios y a la comunidad.
               </p>
             </div>
-            <Button variant="outline" size="lg" className="group bg-primary text-primary-foreground">
+            {/* <Button variant="outline" size="lg" className="group bg-primary text-primary-foreground">
               Conoce al Equipo Pastoral
               <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-            </Button>
+            </Button> */}
           </div>
           <div className="lg:order-1 relative group">
             <div className="absolute inset-0 bg-secondary rounded-2xl transform -rotate-3 transition-transform duration-500 group-hover:-rotate-6"></div>

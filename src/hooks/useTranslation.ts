@@ -20,7 +20,7 @@ const translations: Translations = {
     // Church Info
     'church.name': 'Iglesia Evangélica Pentecostal Sion',
     'church.slogan': 'Cambiando vidas',
-    'church.description': 'Transformando vidas a través del amor de Cristo desde 1995. Una iglesia donde todos son bienvenidos.',
+    'church.description': 'Transformando vidas a través del amor de Cristo desde 1936. Una iglesia donde todos son bienvenidos.',
     
     // Live Stream
     'live.title': 'Servicio en Vivo',

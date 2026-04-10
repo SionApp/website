@@ -34,7 +34,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="opacity-80 mb-4">
-              Transformando vidas a través del amor de Cristo desde 1995. 
+              Transformando vidas a través del amor de Cristo desde 1936.
               Una iglesia donde todos son bienvenidos.
             </p>
             <div className="flex space-x-3">
@@ -59,7 +59,7 @@ const Footer = () => {
               <li><button onClick={() => handleNavigation('#nosotros')} className="hover:text-accent transition-colors text-left">Acerca de Nosotros</button></li>
               <li><button onClick={() => handleNavigation('#contacto')} className="hover:text-accent transition-colors text-left">Contacto</button></li>
               <li><Link to="/galeria" className="hover:text-accent transition-colors">Galería</Link></li>
-              <li><button onClick={() => handleNavigation('#streaming')} className="hover:text-accent transition-colors text-left">En Vivo</button></li>
+              {/* <li><button onClick={() => handleNavigation('#streaming')} className="hover:text-accent transition-colors text-left">En Vivo</button></li> */}
             </ul>
           </div>
 
@@ -83,17 +83,17 @@ const Footer = () => {
               <div className="flex items-start space-x-2">
                 <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
                 <span className="text-sm">
-                  Av. Principal 123, Colonia Centro<br />
-                  Ciudad, Estado 12345
+                  Calle Ampies, Coro 4101, Falcón<br />
+                  Venezuela
                 </span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 flex-shrink-0" />
-                <span className="text-sm">(555) 123-4567</span>
+                <span className="text-sm">+58 412-7590431</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 flex-shrink-0" />
-                <span className="text-sm">info@iglesiasion.org</span>
+                <span className="text-sm">iglesiaevangelicapsion@gmail.com</span>
               </div>
             </div>
           </div>
@@ -101,7 +101,7 @@ const Footer = () => {
         
         <div className="border-t border-border/20 mt-8 pt-8 text-center">
           <p className="opacity-60 text-sm flex items-center justify-center">
-            © 2024 Iglesia Evangélica Pentecostal Sion. Hecho con
+            © 2026 Iglesia Evangélica Pentecostal Sion. Hecho con
             <Heart className="w-4 h-4 mx-1 text-red-400" />
             para la gloria de Dios
           </p>

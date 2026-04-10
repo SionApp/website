@@ -21,21 +21,21 @@ const Services = () => {
     {
       title: "Estudio Bíblico",
       description: "Profundizando en la Palabra de Dios",
-      time: "Miércoles 7:00 PM",
+      time: "Sabados 7:00 AM",
       icon: Book,
       color: "text-blue-500"
     },
     {
-      title: "Grupos Pequeños",
+      title: "Grupos Familiares",
       description: "Comunión íntima y crecimiento espiritual",
-      time: "Viernes 7:30 PM",
+      time: "Martes 7:30 PM",
       icon: Users,
       color: "text-green-500"
     },
     {
-      title: "Alabanza y Adoración",
+      title: "Alabanza y Adoración Juvenil",
       description: "Tiempo especial de adoración",
-      time: "Sábados 7:00 PM",
+      time: "Sábados 2:00 PM",
       icon: Mic2,
       color: "text-purple-500"
     }

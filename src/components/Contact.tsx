@@ -72,8 +72,8 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Ubicación</h3>
                     <p className="text-muted-foreground">
-                      Av. Principal 123, Colonia Centro<br />
-                      Ciudad, Estado 12345
+                      Calle Ampies, Coro 4101, Falcón<br />
+                      Venezuela
                     </p>
                   </div>
                 </div>
@@ -89,8 +89,8 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Teléfono</h3>
                     <p className="text-muted-foreground">
-                      (555) 123-4567<br />
-                      WhatsApp: (555) 987-6543
+                      +58 412-7590431<br />
+                      WhatsApp: +58 412-7590431
                     </p>
                   </div>
                 </div>
@@ -106,8 +106,8 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Email</h3>
                     <p className="text-muted-foreground">
-                      info@iglesiavidanueva.org<br />
-                      pastor@iglesiavidanueva.org
+                      iglesiaevangelicapsion@gmail.com<br />
+                      ohtiel@gmail.com
                     </p>
                   </div>
                 </div>
@@ -124,7 +124,7 @@ const Contact = () => {
                     <h3 className="font-semibold text-foreground mb-1">Horarios de Oficina</h3>
                     <p className="text-muted-foreground">
                       Lunes - Viernes: 9:00 AM - 5:00 PM<br />
-                      Sábado: 10:00 AM - 2:00 PM<br />
+                      {/* Sábado: 10:00 AM - 2:00 PM<br /> */}
                       Domingo: Disponible después del servicio
                     </p>
                   </div>
