@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import EventCard, { EventProps } from "@/components/EventCard";
@@ -7,100 +7,104 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/components/ui/use-toast";
+import { useEvents } from "@/hooks/useEvents";
+import { supabase } from "@/integrations/supabase/client";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Events = () => {
+  const { events, loading } = useEvents();
   const [selectedEvent, setSelectedEvent] = useState<EventProps | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  // Mock Data - In production this would come from Supabase
-  const events: EventProps[] = [
-    {
-      id: 1,
-      title: "Retiro Espiritual 2026",
-      description: "Únete a nosotros para un fin de semana de renovación espiritual en las montañas.",
-      date: "2026-04-02",
-      time: "6:00 PM",
-      location: "Posada Privada",
-      category: "retiro",
-      image: "https://images.unsplash.com/photo-1510936111840-65e151ad71bb?q=80&w=2690&auto=format&fit=crop",
-      featured: true
-    },
-    {
-      id: 2,
-      title: "Conferencia de Jóvenes",
-      description: "Tres días de enseñanza, adoración y compañerismo para jóvenes de 13 a 25 años.",
-      date: "2026-02-28",
-      time: "7:00 PM",
-      location: "Iglesia Sion",
-      category: "jovenes",
-      image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=2670&auto=format&fit=crop"
-    },
-    {
-      id: 3,
-      title: "Taller de Matrimonios",
-      description: "Fortaleciendo los lazos del amor bajo la guía de Dios.",
-      date: "2024-03-10",
-      time: "5:00 PM",
-      location: "Iglesia Sion",
-      category: "familia",
-      image: "https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=2670&auto=format&fit=crop"
-    },
-    {
-      id: 4,
-      title: "Noche de Adoración",
-      description: "Una noche especial dedicada a exaltar el nombre de Jesús.",
-      date: "2024-03-25",
-      time: "7:30 PM",
-      location: "Iglesia Sion",
-      category: "adoracion",
-      image: "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?q=80&w=2670&auto=format&fit=crop"
-    }
-  ];
-
   useEffect(() => {
+    if (loading) return;
     gsap.fromTo(".event-card",
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: "power3.out" }
+      { y: 32, opacity: 0, rotationX: -8 },
+      { y: 0, opacity: 1, rotationX: 0, duration: 0.85, stagger: 0.1, ease: "power3.out" }
     );
-  }, []);
+  }, [loading]);
 
   const handleRegister = (event: EventProps) => {
     setSelectedEvent(event);
     setIsModalOpen(true);
   };
 
-  const handleSubmitRegistration = (e: React.FormEvent) => {
+  const handleSubmitRegistration = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here we would send data to Supabase
+    if (!selectedEvent) return;
+
+    const form = e.target as HTMLFormElement;
+    const firstName = (form.elements.namedItem("name") as HTMLInputElement).value;
+    const email = (form.elements.namedItem("email") as HTMLInputElement).value;
+    const phone = (form.elements.namedItem("phone") as HTMLInputElement).value;
+    const [name, ...rest] = firstName.trim().split(" ");
+
+    setIsSubmitting(true);
+    const { error } = await supabase.rpc("register_event_interest", {
+      p_event_id: selectedEvent.id,
+      p_first_name: name,
+      p_last_name: rest.join(" ") || name,
+      p_email: email,
+      p_phone: phone,
+    });
+    setIsSubmitting(false);
+
+    if (error) {
+      toast({
+        title: "No pudimos completar la inscripción",
+        description: "Intentá de nuevo en unos minutos.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     toast({
       title: "¡Inscripción Exitosa!",
-      description: `Te has inscrito correctamente a ${selectedEvent?.title}`,
+      description: `Te has inscrito correctamente a ${selectedEvent.title}`,
     });
     setIsModalOpen(false);
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background flex flex-col">
       <Header />
 
-      <main className="container mx-auto px-4 py-20">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-            Próximos <span className="text-primary">Eventos</span>
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Descubre lo que Dios está haciendo en nuestra comunidad y sé parte de ello.
-          </p>
+      <div className="bg-navy py-16 sm:py-20 text-center px-4">
+        <div className="text-xs font-bold tracking-[0.1em] text-primary mb-3">
+          PANEL ADMIN → EVENTOS
         </div>
+        <h1 className="font-serif text-4xl sm:text-5xl font-bold text-white mb-3">
+          Actividades y Eventos
+        </h1>
+        <p className="text-text-on-navy text-sm max-w-xl mx-auto">
+          Descubre lo que Dios está haciendo en nuestra comunidad y sé parte de ello. Cada
+          tarjeta nace de un evento publicado desde el panel admin.
+        </p>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <main className="container mx-auto px-4 py-14 sm:py-16 flex-1">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {events.map((event) => (
             <div key={event.id} className="event-card">
               <EventCard event={event} onRegister={handleRegister} />
             </div>
           ))}
+
+          {events.length % 3 !== 0 && (
+            <div className="event-card border border-dashed border-primary/40 rounded-[10px] flex flex-col items-center justify-center text-center p-7 min-h-[260px]">
+              <span className="text-xs font-bold tracking-[0.05em] text-primary mb-2">
+                PRÓXIMAMENTE
+              </span>
+              <span className="text-sm text-muted-foreground">
+                Nuevos eventos aparecerán aquí en cuanto se publiquen desde el panel admin.
+              </span>
+            </div>
+          )}
         </div>
       </main>
 
@@ -115,17 +119,19 @@ const Events = () => {
           <form onSubmit={handleSubmitRegistration} className="space-y-4 mt-4">
             <div className="space-y-2">
               <Label htmlFor="name">Nombre Completo</Label>
-              <Input id="name" placeholder="Tu nombre" required className="bg-background/50" />
+              <Input id="name" name="name" placeholder="Tu nombre" required className="bg-background/50" />
             </div>
             <div className="space-y-2">
               <Label htmlFor="email">Correo Electrónico</Label>
-              <Input id="email" type="email" placeholder="tu@email.com" required className="bg-background/50" />
+              <Input id="email" name="email" type="email" placeholder="tu@email.com" required className="bg-background/50" />
             </div>
             <div className="space-y-2">
               <Label htmlFor="phone">Teléfono</Label>
-              <Input id="phone" type="tel" placeholder="+1 234 567 890" className="bg-background/50" />
+              <Input id="phone" name="phone" type="tel" placeholder="+1 234 567 890" className="bg-background/50" />
             </div>
-            <Button type="submit" className="w-full">Confirmar Inscripción</Button>
+            <Button type="submit" className="w-full" disabled={isSubmitting}>
+              {isSubmitting ? "Enviando..." : "Confirmar Inscripción"}
+            </Button>
           </form>
         </DialogContent>
       </Dialog>

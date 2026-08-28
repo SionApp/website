@@ -25,7 +25,6 @@ const RegistrationModal = () => {
     whatsapp: false,
     bautizado: false,
     fecha_bautizo: "",
-    password_hash: ""
   });
 
   useEffect(() => {
@@ -56,30 +55,22 @@ const RegistrationModal = () => {
     setIsLoading(true);
 
     try {
-      // Generar un hash simple para la contraseña (en producción usar bcrypt)
-      const tempPassword = formData.cedula; // Usar cédula como contraseña temporal
-      const passwordHash = btoa(tempPassword); // Codificación base64 simple
-
-      const dataToInsert = {
-        ...formData,
-        password_hash: passwordHash,
-        fecha_bautizo: formData.bautizado && formData.fecha_bautizo ? formData.fecha_bautizo : null
-      };
-
-      const { error } = await supabase
-        .from('users')
-        .insert([dataToInsert]);
+      // Issue #72: register_visitor() reemplaza el insert directo a `users`
+      // (ese camino ya no existe — ver fix de seguridad en la migración
+      // 20260827000009). Deja al visitante SIN cuenta de login; un staff
+      // valida más tarde desde el panel para darle acceso real.
+      const { error } = await supabase.rpc('register_visitor', {
+        p_first_name: formData.nombres,
+        p_last_name: formData.apellidos,
+        p_email: formData.correo,
+        p_phone: formData.telefono,
+        p_address: formData.direccion,
+        p_id_number: formData.cedula,
+        p_whatsapp: formData.whatsapp,
+      });
 
       if (error) {
-        if (error.message.includes('duplicate') || error.code === '23505') {
-          toast({
-            title: "Error",
-            description: "Ya existe un usuario registrado con esta cédula o correo electrónico.",
-            variant: "destructive",
-          });
-        } else {
-          throw error;
-        }
+        throw error;
       } else {
         toast({
           title: "¡Registro exitoso!",
@@ -96,7 +87,6 @@ const RegistrationModal = () => {
           whatsapp: false,
           bautizado: false,
           fecha_bautizo: "",
-          password_hash: ""
         });
       }
     } catch (error) {
