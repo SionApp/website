@@ -63,7 +63,7 @@ const LiveBanner = () => {
 
   return (
     <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 animate-in fade-in slide-in-from-top duration-500">
-      <div className="bg-destructive/95 backdrop-blur-sm text-destructive-foreground px-6 py-3 rounded-full shadow-lg border border-destructive/20">
+      <div className="bg-live/95 backdrop-blur-sm text-live-foreground px-6 py-3 rounded-full shadow-lg border border-live/20">
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 bg-white rounded-full animate-pulse" />

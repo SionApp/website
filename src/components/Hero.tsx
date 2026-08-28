@@ -1,167 +1,126 @@
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Heart, Users, Clock } from "lucide-react";
-import churchHero from "@/assets/church-hero-enhanced.jpg";
+import { Heart, BookOpen, Users, Play } from "lucide-react";
+import worshipCommunity from "@/assets/worship-community.jpg";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const trustBadges = [
+  { icon: Heart, label: "Adoración" },
+  { icon: BookOpen, label: "Crecer" },
+  { icon: Users, label: "Servir" },
+];
+
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
-  const textRef = useRef<HTMLDivElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Background Zoom Effect
-      gsap.fromTo(bgRef.current,
-        { scale: 1.1 },
+      // Text entrance
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+      tl.fromTo(
+        ".hero-text-item",
+        { y: 32, opacity: 0, rotationX: -8 },
+        { y: 0, opacity: 1, rotationX: 0, duration: 0.85, stagger: 0.12, delay: 0.15 },
+      );
+      tl.fromTo(
+        ".hero-btn",
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.7, stagger: 0.1 },
+        "-=0.5",
+      );
+
+      // Subtle parallax zoom on the right-side photo while scrolling away
+      gsap.fromTo(
+        bgRef.current,
+        { scale: 1.08 },
         {
           scale: 1,
-          duration: 10,
           ease: "none",
           scrollTrigger: {
             trigger: heroRef.current,
             start: "top top",
             end: "bottom top",
-            scrub: true
-          }
-        }
+            scrub: true,
+          },
+        },
       );
-
-      // Text Entrance Animation
-      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-
-      tl.fromTo(".hero-text-item",
-        { y: 50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1, stagger: 0.2, delay: 0.5 }
-      );
-
-      // Button Entrance
-      tl.fromTo(".hero-btn",
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, stagger: 0.1 },
-        "-=0.5"
-      );
-
-      // Service Times Entrance
-      tl.fromTo(".hero-services",
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8 },
-        "-=0.6"
-      );
-
     }, heroRef);
 
     return () => ctx.revert();
   }, []);
 
+  const scrollTo = (anchor: string) => {
+    document.querySelector(anchor)?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <section ref={heroRef} id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Dynamic Background Image */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div
-          ref={bgRef}
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-110"
-          style={{ backgroundImage: `url(${churchHero})` }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
-        </div>
-      </div>
-
-      {/* Divine Particles Overlay */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="particles opacity-20"></div>
-      </div>
-
-      {/* Content */}
-      <div ref={textRef} className="relative z-10 container mx-auto px-4 text-center text-white">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="hero-text-item text-5xl md:text-8xl font-bold mb-6 leading-tight tracking-tight">
-            Bienvenido a
-            <span className="block text-primary font-black mt-2 drop-shadow-lg">Iglesia Sion</span>
+    <section
+      ref={heroRef}
+      id="inicio"
+      className="relative grid grid-cols-1 lg:grid-cols-2 min-h-[460px]"
+      style={{ perspective: "1400px" }}
+    >
+      {/* Left: copy */}
+      <div className="flex flex-col justify-center bg-background px-6 sm:px-10 lg:px-14 py-16 lg:py-20">
+        <div className="max-w-xl">
+          <span className="hero-text-item block text-xs font-bold tracking-[0.1em] text-primary mb-3">
+            BIENVENIDO A CASA
+          </span>
+          <h1 className="hero-text-item font-serif text-4xl md:text-[40px] leading-[1.18] font-bold text-navy dark:text-foreground mb-5">
+            Ama a Dios.
+            <br />
+            Ama a la Gente.
+            <br />
+            <span className="text-primary">Transforma Vidas.</span>
           </h1>
-
-          <p className="hero-text-item text-xl md:text-2xl mb-10 text-gray-200 max-w-2xl mx-auto leading-relaxed font-light">
-            Una comunidad de fe donde experimentarás el amor de Dios y encontrarás tu propósito.
+          <p className="hero-text-item text-sm text-muted-foreground leading-relaxed mb-7 max-w-md">
+            Somos una iglesia comprometida con predicar el Evangelio y formar discípulos
+            que transforman su comunidad en Coro, Falcón.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+          <div className="flex flex-wrap gap-3 mb-7">
             <Button
-              variant="default"
               size="lg"
-              className="hero-btn text-lg px-8 py-6 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-[0_0_20px_rgba(234,179,8,0.4)] hover:shadow-[0_0_30px_rgba(234,179,8,0.6)] transition-all duration-300 transform hover:-translate-y-1"
-              onClick={() => {
-                const event = new CustomEvent('openRegistrationModal');
-                window.dispatchEvent(event);
-              }}
+              className="hero-btn rounded-[4px] bg-navy text-navy-foreground hover:bg-navy/90 font-bold"
+              onClick={() => scrollTo("#contacto")}
             >
-              <Users className="w-5 h-5 mr-2" />
-              Únete a Nosotros
-              <ArrowRight className="w-5 h-5 ml-2" />
+              Planifica tu Visita
             </Button>
             <Button
-              variant="outline"
               size="lg"
-              className="hero-btn text-lg px-8 py-6 rounded-full border-white/20 text-primary hover:bg-white/10 backdrop-blur-sm transition-all duration-300"
-              onClick={() => {
-                document.getElementById('nosotros')?.scrollIntoView({
-                  behavior: 'smooth'
-                });
-              }}
+              variant="outline"
+              className="hero-btn rounded-[4px] border-border text-navy dark:text-foreground font-bold"
+              onClick={() => scrollTo("#streaming")}
             >
-              <Heart className="w-5 h-5 mr-2" />
-              Conoce Más
+              <Play className="w-4 h-4 mr-2" />
+              Ver Video
             </Button>
           </div>
 
-          {/* Service Times */}
-          <div className="hero-services bg-black/30 backdrop-blur-md rounded-2xl p-8 max-w-md mx-auto border border-white/10 shadow-2xl transform hover:scale-105 transition-transform duration-300">
-            <h3 className="text-lg font-semibold mb-4 text-primary">Servicios Dominicales</h3>
-            <div className="space-y-3 text-gray-200">
-              <div className="flex justify-between items-center border-b border-white/10 pb-2">
-                <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-primary" />
-                  <span>Primer Servicio</span>
-                </div>
-                <span className="font-mono text-primary-light">7:00 AM</span>
-              </div>
-              <div className="flex justify-between items-center border-b border-white/10 pb-2">
-                <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-primary" />
-                  <span>Segundo Servicio</span>
-                </div>
-                <span className="font-mono text-primary-light">9:00 AM</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-primary" />
-                  <span>Tercer Servicio</span>
-                </div>
-                <span className="font-mono text-primary-light">11:00 AM</span>
-              </div>
-            </div>
+          <div className="hero-text-item flex flex-wrap gap-6 text-xs font-semibold text-foreground/70">
+            {trustBadges.map(({ icon: Icon, label }) => (
+              <span key={label} className="flex items-center gap-1.5">
+                <Icon className="w-3.5 h-3.5 text-primary" />
+                {label}
+              </span>
+            ))}
           </div>
         </div>
       </div>
 
-      {/* Decorative Gradient Bottom */}
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent"></div>
-
-      <style>{`
-        .particles {
-          background-image: 
-            radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-            radial-gradient(circle at 30% 70%, rgba(255, 215, 0, 0.1) 1px, transparent 1px);
-          background-size: 100px 100px;
-          animation: particleFloat 60s linear infinite;
-        }
-        @keyframes particleFloat {
-          0% { background-position: 0 0; }
-          100% { background-position: 100px -100px; }
-        }
-      `}</style>
+      {/* Right: full-bleed photo with gradient toward the text side */}
+      <div className="relative min-h-[280px] lg:min-h-0 overflow-hidden">
+        <div
+          ref={bgRef}
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${worshipCommunity})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/10 to-transparent lg:bg-gradient-to-r lg:from-background lg:via-transparent lg:to-transparent" />
+      </div>
     </section>
   );
 };

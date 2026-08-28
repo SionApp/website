@@ -8,41 +8,50 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Sion Church palette - elegant gold, gray, black, white */
-    --background: 0 0% 92%;
-    --foreground: 0 0% 15%;
+    /* Sion Church palette - cream, navy, gold (2026 redesign) */
+    --background: 43 64% 98%; /* #fdfbf6 cream */
+    --foreground: 225 26% 15%; /* #1c2130 */
 
-    --card: 0 0% 96%;
-    --card-foreground: 0 0% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 225 26% 15%;
 
-    --popover: 0 0% 96%;
-    --popover-foreground: 0 0% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 225 26% 15%;
 
-    --primary: 45 80% 45%;
+    --primary: 39 63% 48%; /* #c9932e gold */
     --primary-foreground: 0 0% 100%;
-    --primary-light: 45 80% 85%;
+    --primary-light: 39 63% 78%;
 
-    --secondary: 0 0% 88%;
-    --secondary-foreground: 0 0% 15%;
+    --secondary: 40 30% 95%;
+    --secondary-foreground: 225 26% 15%;
 
-    --muted: 0 0% 86%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 40 20% 93%;
+    --muted-foreground: 220 9% 46%;
 
-    --accent: 45 80% 50%;
+    --accent: 39 63% 48%; /* gold, same family as primary */
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 64% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 82%;
-    --input: 0 0% 88%;
-    --ring: 45 80% 45%;
+    --border: 0 0% 93%; /* #eee */
+    --input: 0 0% 90%;
+    --ring: 39 63% 48%;
 
     /* Sion-specific design tokens */
-    --gradient-hero: linear-gradient(135deg, hsl(45 80% 45%), hsl(45 70% 55%));
-    --gradient-divine: linear-gradient(180deg, hsl(0 0% 92%), hsl(0 0% 96%));
-    --shadow-divine: 0 10px 40px -10px hsl(45 80% 45% / 0.2);
-    --shadow-soft: 0 4px 20px -4px hsl(0 0% 15% / 0.08);
+    --navy: 220 61% 15%; /* #0f1e3d */
+    --navy-foreground: 222 32% 86%; /* #cfd6e6 */
+    --navy-secondary: 222 54% 19%; /* #16264a */
+    --navy-secondary-foreground: 222 32% 86%;
+    --live: 0 64% 55%; /* #d64545 */
+    --live-foreground: 0 0% 100%;
+    --text-on-navy: 222 32% 86%; /* #cfd6e6 */
+
+    --gradient-hero: linear-gradient(135deg, hsl(var(--navy)), hsl(var(--navy-secondary)));
+    --gradient-divine: linear-gradient(180deg, hsl(var(--background)), hsl(0 0% 100%));
+    --shadow-divine: 0 12px 34px hsl(var(--navy) / 0.18);
+    --shadow-soft: 0 4px 20px -4px hsl(var(--navy) / 0.12);
+    --shadow-hover-3d: 0 22px 40px -14px hsl(var(--navy) / 0.4);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --radius: 0.5rem;
@@ -65,33 +74,43 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 0 0% 10%;
-    --foreground: 0 0% 92%;
+    --background: 222 54% 8%;
+    --foreground: 222 32% 86%;
 
-    --card: 0 0% 14%;
-    --card-foreground: 0 0% 92%;
+    --card: 222 54% 12%;
+    --card-foreground: 222 32% 86%;
 
-    --popover: 0 0% 14%;
-    --popover-foreground: 0 0% 92%;
+    --popover: 222 54% 12%;
+    --popover-foreground: 222 32% 86%;
 
-    --primary: 45 80% 55%;
-    --primary-foreground: 0 0% 8%;
+    --primary: 39 63% 58%;
+    --primary-foreground: 220 61% 12%;
+    --primary-light: 39 63% 78%;
 
-    --secondary: 0 0% 18%;
-    --secondary-foreground: 0 0% 92%;
+    --secondary: 222 40% 16%;
+    --secondary-foreground: 222 32% 86%;
 
-    --muted: 0 0% 18%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 222 40% 16%;
+    --muted-foreground: 222 15% 65%;
 
-    --accent: 45 80% 60%;
-    --accent-foreground: 0 0% 8%;
+    --accent: 39 63% 58%;
+    --accent-foreground: 220 61% 12%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 92%;
+    --destructive: 0 64% 55%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 22%;
-    --input: 0 0% 22%;
-    --ring: 45 80% 55%;
+    --border: 222 30% 20%;
+    --input: 222 30% 20%;
+    --ring: 39 63% 58%;
+
+    --navy: 220 61% 11%;
+    --navy-foreground: 222 32% 86%;
+    --navy-secondary: 222 54% 16%;
+    --navy-secondary-foreground: 222 32% 86%;
+    --live: 0 64% 58%;
+    --live-foreground: 0 0% 100%;
+    --text-on-navy: 222 32% 86%;
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -110,5 +129,21 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: "Inter", system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Playfair Display", serif;
+  }
+}
+
+@layer utilities {
+  /* Hover 3D tilt used on cards/images (services, gallery, event banner, live cards) */
+  .tilt-3d {
+    transition: transform 0.45s ease, box-shadow 0.45s ease;
+  }
+  .tilt-3d:hover {
+    transform: rotateY(-3deg) rotateX(2deg) translateY(-4px);
+    box-shadow: var(--shadow-hover-3d);
   }
 }

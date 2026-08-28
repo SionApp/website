@@ -59,6 +59,21 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        navy: {
+          DEFAULT: "hsl(var(--navy))",
+          foreground: "hsl(var(--navy-foreground))",
+          secondary: "hsl(var(--navy-secondary))",
+          "secondary-foreground": "hsl(var(--navy-secondary-foreground))",
+        },
+        live: {
+          DEFAULT: "hsl(var(--live))",
+          foreground: "hsl(var(--live-foreground))",
+        },
+        "text-on-navy": "hsl(var(--text-on-navy))",
+      },
+      fontFamily: {
+        serif: ["'Playfair Display'", "serif"],
+        sans: ["Inter", "system-ui", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",

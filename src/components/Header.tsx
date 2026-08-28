@@ -4,12 +4,14 @@ import { Menu, X } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ThemeToggle } from "./ThemeToggle";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import { CHURCH_INFO } from "@/data/church-info";
 import sionLogo from "@/assets/sion-logo-final.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const isHome = location.pathname === "/";
 
   const handleNavigation = (anchor: string) => {
     if (location.pathname === '/') {
@@ -22,102 +24,121 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
+  const navLinkClass = (active: boolean) =>
+    active
+      ? "text-primary border-b-2 border-primary pb-1 font-semibold transition-colors"
+      : "text-foreground/70 hover:text-foreground transition-colors pb-1 border-b-2 border-transparent";
+
   return (
-    <header className="bg-background/95 backdrop-blur-sm border-b border-border/50 sticky top-0 z-50 transition-all duration-300">
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden bg-background">
-              <img
-                src={sionLogo}
-                alt="Iglesia Sion"
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-foreground">Iglesia Evangélica Pentecostal Sion</h1>
-              <p className="text-sm text-muted-foreground">Cambiando vidas</p>
-            </div>
-          </div>
+    <>
+      {/* Thin navy top bar: address/phone + Sunday schedule */}
+      <div className="hidden sm:flex items-center justify-between bg-navy text-text-on-navy text-xs px-6 lg:px-10 py-2">
+        <span>
+          {CHURCH_INFO.address} · {CHURCH_INFO.phone}
+        </span>
+        <span>{CHURCH_INFO.sundayScheduleShort}</span>
+      </div>
 
-          <nav className="hidden lg:flex items-center space-x-8">
-            <button onClick={() => handleNavigation('#inicio')} className="text-muted-foreground hover:text-foreground transition-colors">
-              Inicio
-            </button>
-            <button onClick={() => handleNavigation('#servicios')} className="text-muted-foreground hover:text-foreground transition-colors">
-              Servicios
-            </button>
-            <button onClick={() => handleNavigation('#nosotros')} className="text-muted-foreground hover:text-foreground transition-colors">
-              Nosotros
-            </button>
-            {/* <button onClick={() => handleNavigation('#streaming')} className="text-muted-foreground hover:text-foreground transition-colors">
-              En Vivo
-            </button> */}
-            <Link to="/galeria" className="text-muted-foreground hover:text-foreground transition-colors">
-              Galería
+      <header className="bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-50 transition-all duration-300">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <Link to="/" className="flex items-center gap-2.5">
+              <div className="w-9 h-9 rounded-lg flex items-center justify-center overflow-hidden bg-background">
+                <img
+                  src={sionLogo}
+                  alt="Iglesia Sion"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <span className="font-serif font-bold text-lg text-navy dark:text-foreground">SION</span>
             </Link>
-            <Link to="/eventos" className="text-muted-foreground hover:text-foreground transition-colors">
-              Actividades
-            </Link>
-            <button onClick={() => handleNavigation('#contacto')} className="text-muted-foreground hover:text-foreground transition-colors">
-              Contacto
-            </button>
-          </nav>
 
-          <div className="hidden lg:flex items-center gap-4">
-            <LanguageSwitcher />
-            <ThemeToggle />
-            <Button variant="default" size="sm">
-              Únete a Nosotros
-            </Button>
-          </div>
-
-          <div className="lg:hidden flex items-center gap-2">
-            <LanguageSwitcher />
-            <ThemeToggle />
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
-          </div>
-        </div>
-
-        {/* Mobile menu */}
-        {isMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t border-border animate-fade-in">
-            <nav className="flex flex-col space-y-4 pt-4">
-              <button onClick={() => handleNavigation('#inicio')} className="text-muted-foreground hover:text-foreground transition-colors text-left">
+            <nav className="hidden lg:flex items-center space-x-8 text-sm font-semibold">
+              <button onClick={() => handleNavigation('#inicio')} className={navLinkClass(isHome)}>
                 Inicio
               </button>
-              <button onClick={() => handleNavigation('#servicios')} className="text-muted-foreground hover:text-foreground transition-colors text-left">
-                Servicios
-              </button>
-              <button onClick={() => handleNavigation('#nosotros')} className="text-muted-foreground hover:text-foreground transition-colors text-left">
+              <button onClick={() => handleNavigation('#nosotros')} className={navLinkClass(false)}>
                 Nosotros
               </button>
-              <button onClick={() => handleNavigation('#streaming')} className="text-muted-foreground hover:text-foreground transition-colors text-left">
-                En Vivo
+              <button onClick={() => handleNavigation('#servicios')} className={navLinkClass(false)}>
+                Servicios
               </button>
-              <Link to="/galeria" className="text-muted-foreground hover:text-foreground transition-colors">
-                Galería
-              </Link>
-              <Link to="/eventos" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Link to="/eventos" className={navLinkClass(location.pathname === "/eventos")}>
                 Actividades
               </Link>
-              <button onClick={() => handleNavigation('#contacto')} className="text-muted-foreground hover:text-foreground transition-colors text-left">
+              <Link to="/galeria" className={navLinkClass(location.pathname === "/galeria")}>
+                Galería
+              </Link>
+              <button onClick={() => handleNavigation('#contacto')} className={navLinkClass(false)}>
                 Contacto
               </button>
-              <Button variant="default" size="sm" className="mt-4 self-start">
-                Únete a Nosotros
-              </Button>
             </nav>
+
+            <div className="hidden lg:flex items-center gap-3">
+              <LanguageSwitcher />
+              <ThemeToggle />
+              <Button
+                variant="default"
+                size="sm"
+                className="rounded-[4px] bg-primary text-primary-foreground hover:bg-primary/90"
+                onClick={() => handleNavigation('#contacto')}
+              >
+                Planifica tu Visita
+              </Button>
+            </div>
+
+            <div className="lg:hidden flex items-center gap-2">
+              <LanguageSwitcher />
+              <ThemeToggle />
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
+                {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </Button>
+            </div>
           </div>
-        )}
-      </div>
-    </header>
+
+          {/* Mobile menu */}
+          {isMenuOpen && (
+            <div className="lg:hidden mt-4 pb-4 border-t border-border animate-fade-in">
+              <nav className="flex flex-col space-y-4 pt-4 text-sm font-semibold">
+                <button onClick={() => handleNavigation('#inicio')} className="text-left text-foreground/70 hover:text-foreground transition-colors">
+                  Inicio
+                </button>
+                <button onClick={() => handleNavigation('#nosotros')} className="text-left text-foreground/70 hover:text-foreground transition-colors">
+                  Nosotros
+                </button>
+                <button onClick={() => handleNavigation('#servicios')} className="text-left text-foreground/70 hover:text-foreground transition-colors">
+                  Servicios
+                </button>
+                <button onClick={() => handleNavigation('#streaming')} className="text-left text-foreground/70 hover:text-foreground transition-colors">
+                  En Vivo
+                </button>
+                <Link to="/eventos" className="text-foreground/70 hover:text-foreground transition-colors">
+                  Actividades
+                </Link>
+                <Link to="/galeria" className="text-foreground/70 hover:text-foreground transition-colors">
+                  Galería
+                </Link>
+                <button onClick={() => handleNavigation('#contacto')} className="text-left text-foreground/70 hover:text-foreground transition-colors">
+                  Contacto
+                </button>
+                <Button
+                  variant="default"
+                  size="sm"
+                  className="mt-2 self-start rounded-[4px] bg-primary text-primary-foreground hover:bg-primary/90"
+                  onClick={() => handleNavigation('#contacto')}
+                >
+                  Planifica tu Visita
+                </Button>
+              </nav>
+            </div>
+          )}
+        </div>
+      </header>
+    </>
   );
 };
 

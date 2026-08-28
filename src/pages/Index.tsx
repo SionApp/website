@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import NextEventBanner from "@/components/NextEventBanner";
 import Services from "@/components/Services";
 import About from "@/components/About";
 import LiveStream from "@/components/LiveStream";
@@ -33,17 +34,18 @@ const Index = () => {
       <LiveBanner />
       <Header />
       <Hero />
-      <Services />
-      <About />
+      <NextEventBanner />
 
-      {/* Conditionally render LiveStream or Newsletter */}
-      <div id="streaming">
-        {isLive ? (
-          <LiveStream liveData={liveData} />
-        ) : (
-          <Newsletter />
-        )}
-      </div>
+      {/* "En Vivo" always renders now; it alternates its own content based on isLive */}
+      <LiveStream isLive={isLive} liveData={liveData} />
+
+      <Services />
+
+      {/* Activities (left) + church history (right) split */}
+      <Newsletter />
+
+      {/* Pastor section */}
+      <About />
 
       <Contact />
       <Footer />
